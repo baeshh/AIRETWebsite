@@ -71,8 +71,8 @@ export default function Product() {
       <section className="section section--white" style={{ paddingTop: "6rem" }}>
         <div className="container">
           <SectionHeader
-            title="Product Line"
-            subtitle="Museum-grade solutions for every need"
+            title="Smart Living Starts at the Doorstep"
+            subtitle="Every feature has been meticulously designed to provide unparalleled shoe care and presentation in luxury environments."
             theme="white"
           />
           <div className="product-grid">

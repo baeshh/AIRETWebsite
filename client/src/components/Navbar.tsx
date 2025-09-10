@@ -23,11 +23,15 @@ export default function Navbar() {
     { path: "/news", label: "News" },
   ];
 
+  const handleNavClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <nav className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`}>
       <div className="container">
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "3rem" }}>
-          <Link to="/" style={{ fontSize: "1.25rem", fontWeight: "bold" }} data-testid="link-home-logo">
+          <Link to="/" style={{ fontSize: "1.25rem", fontWeight: "bold" }} onClick={handleNavClick} data-testid="link-home-logo">
             AIRET
           </Link>
           <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
@@ -37,6 +41,7 @@ export default function Navbar() {
                   key={link.path}
                   to={link.path}
                   className={`nav-link ${location.pathname === link.path ? "nav-link--active" : ""}`}
+                  onClick={handleNavClick}
                   data-testid={`link-nav-${link.label.toLowerCase()}`}
                 >
                   {link.label}
@@ -69,7 +74,10 @@ export default function Navbar() {
                 to={link.path}
                 className={`nav-link ${location.pathname === link.path ? "nav-link--active" : ""}`}
                 style={{ display: "block", padding: "0.75rem 0" }}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  handleNavClick();
+                }}
                 data-testid={`link-mobile-${link.label.toLowerCase()}`}
               >
                 {link.label}
