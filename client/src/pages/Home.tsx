@@ -103,7 +103,7 @@ export default function Home() {
         
         <div style={{ position: "relative", zIndex: "10", textAlign: "center", padding: "calc(var(--space) * 2) var(--space)" }} className="fade-up" data-testid="hero-content">
           <h1 style={{ fontSize: "clamp(3.75rem, 10vw, 5rem)", fontWeight: "bold", marginBottom: "1.5rem" }} data-testid="text-hero-title">
-            AIRET
+            Luxury Built-in Shoe Care System
           </h1>
           <p style={{ fontSize: "clamp(1.25rem, 3vw, 1.5rem)", opacity: "0.8", maxWidth: "32rem", margin: "0 auto" }} data-testid="text-hero-subtitle">
             Museum-grade Shoe Care & Display
