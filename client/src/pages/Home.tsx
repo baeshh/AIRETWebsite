@@ -99,9 +99,9 @@ export default function Home() {
           </div>
         )}
         
-        <div style={{ position: "relative", zIndex: "10", paddingLeft: "2rem" }}>
+        <div style={{ position: "relative", zIndex: "10", paddingLeft: "4rem" }}>
           <div style={{ display: "flex", alignItems: "center", minHeight: "100vh", paddingTop: "3rem" }}>
-            <div style={{ textAlign: "left", maxWidth: "50%", color: "#fff" }} className="fade-up" data-testid="hero-content">
+            <div style={{ textAlign: "left", maxWidth: "50%", color: "#fff", marginLeft: "0" }} className="fade-up" data-testid="hero-content">
               <h1 style={{ fontSize: "clamp(3rem, 8vw, 4.5rem)", fontWeight: "bold", marginBottom: "1.5rem", lineHeight: "1.1" }} data-testid="text-hero-title">
                 Luxury Built-in<br />ShoeCare System
               </h1>
