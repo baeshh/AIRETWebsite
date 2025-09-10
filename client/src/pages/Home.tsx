@@ -9,6 +9,7 @@ import news from "../content/news";
 
 export default function Home() {
   const [videoError, setVideoError] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   const stats = [
     {
@@ -63,7 +64,17 @@ export default function Home() {
             muted
             loop
             playsInline
-            onError={() => setVideoError(true)}
+            onError={(e) => {
+              console.log('Video error:', e);
+              setVideoError(true);
+            }}
+            onLoadedData={() => {
+              console.log('Video loaded successfully');
+              setVideoLoaded(true);
+            }}
+            onCanPlay={() => {
+              console.log('Video can play');
+            }}
             data-testid="hero-video"
           >
             <source src="/videos/movie.mp4" type="video/mp4" />
