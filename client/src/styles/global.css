@@ -1,0 +1,247 @@
+/* Global reset and base styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  font-family: var(--font);
+  line-height: 1.6;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+a, button {
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  transition: filter 0.2s ease;
+}
+
+a:hover, button:hover {
+  filter: brightness(0.9);
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Layout classes */
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: calc(var(--space) * 2);
+}
+
+.section {
+  padding: clamp(56px, 8vw, 120px) 0;
+}
+
+.section--white {
+  background: var(--w-bg);
+  color: var(--w-fg);
+}
+
+.section--black {
+  background: var(--b-bg);
+  color: var(--b-fg);
+}
+
+/* Card styles */
+.card {
+  border-radius: var(--radius);
+  border: 1px solid;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card--white {
+  background: var(--w-surface);
+  border-color: var(--w-line);
+}
+
+.card--black {
+  background: var(--b-surface);
+  border-color: var(--b-line);
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--w-bg);
+  border-bottom: 1px solid var(--w-line);
+  z-index: 1000;
+  transition: box-shadow 0.2s ease;
+}
+
+.navbar--scrolled {
+  box-shadow: var(--shadow);
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0;
+  transition: all 0.2s ease;
+}
+
+.nav-link--active {
+  border-bottom: 2px solid currentColor;
+  font-weight: 600;
+}
+
+/* Hero video */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+  z-index: 0;
+}
+
+/* Grids */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: calc(var(--space) * 2);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: calc(var(--space) * 1.5);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: calc(var(--space) * 2);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: calc(var(--space) * 1.5);
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: calc(var(--space) * 2);
+}
+
+/* Spec table */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: calc(var(--space) * 2);
+}
+
+.spec-table th,
+.spec-table td {
+  padding: calc(var(--space) * 0.75);
+  text-align: left;
+  border-bottom: 1px solid currentColor;
+  opacity: 0.8;
+}
+
+.spec-table th {
+  font-weight: 600;
+  opacity: 1;
+}
+
+.spec-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.6s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--space);
+  }
+  
+  .section {
+    padding: clamp(40px, 6vw, 80px) 0;
+  }
+  
+  .stat-strip {
+    grid-template-columns: 1fr;
+    gap: var(--space);
+  }
+  
+  .hero-content {
+    padding: calc(var(--space) * 2) var(--space);
+  }
+  
+  .navbar .container {
+    padding: 0 var(--space);
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+  
+  .desktop-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
+  }
+  
+  .desktop-menu {
+    display: flex;
+  }
+}

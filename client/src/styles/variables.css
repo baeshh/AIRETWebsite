@@ -1,0 +1,22 @@
+:root {
+  /* White theme variables */
+  --w-bg: hsl(0, 0%, 100%);
+  --w-fg: hsl(0, 0%, 0%);
+  --w-muted: hsl(0, 0%, 27%);
+  --w-line: hsl(0, 0%, 87%);
+  --w-surface: hsl(0, 0%, 100%);
+  
+  /* Black theme variables */
+  --b-bg: hsl(0, 0%, 0%);
+  --b-fg: hsl(0, 0%, 100%);
+  --b-muted: hsl(0, 0%, 73%);
+  --b-line: hsl(0, 0%, 13%);
+  --b-surface: hsl(0, 0%, 7%);
+  
+  /* Layout variables */
+  --radius: 12px;
+  --space: 16px;
+  --maxw: 1200px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
