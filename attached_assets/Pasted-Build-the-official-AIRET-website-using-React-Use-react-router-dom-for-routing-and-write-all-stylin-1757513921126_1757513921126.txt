@@ -1,0 +1,173 @@
+Build the official AIRET website using React. Use react-router-dom for routing, and write all styling in pure CSS files (no external UI frameworks, no icon/font libraries). 
+The site must follow AIRET’s brand structure, with **sections alternating between White and Black backgrounds**. 
+Default text language is English. The Home hero section must use /public/videos/movie.mp4 as a **fullscreen autoplay background video**.
+
+[Routing]
+- Home    → "/"
+- About   → "/about"
+- Product → "/product"
+- Patents → "/patents"
+- News    → "/news"
+
+[File/Folder Structure]
+/public
+  /videos/movie.mp4
+  /images/ (grayscale dummy images)
+/src
+  /styles/variables.css   ← color/spacing/typography variables (for alternating themes)
+/styles/global.css       ← reset, typography, layout, .section--white / .section--black classes
+/components/
+  Navbar.jsx
+  Footer.jsx
+  SectionHeader.jsx
+  StatStrip.jsx
+  FeatureGrid.jsx
+  ProductCard.jsx
+  SpecTable.jsx
+  TeamGrid.jsx
+  PatentCard.jsx
+  NewsCard.jsx
+/pages/
+  Home.jsx
+  About.jsx
+  Product.jsx
+  Patents.jsx
+  News.jsx
+/content/
+  products.js
+  team.js
+  patents.js
+  news.js
+App.jsx
+main.jsx
+index.css (import global.css)
+
+[Section Theme Rules]
+- First section White → then Black → continue alternating.
+- .section--white: background #fff, text #000, muted text dark gray, divider light gray, cards white with thin black borders.
+- .section--black: background #000, text #fff, muted text light gray, divider dark gray, cards dark gray.
+- SectionHeader must automatically adapt for contrast (white bg → black title, black bg → white title).
+- Cards/buttons/links use only brightness/opacity changes (no colors).
+
+[Style Guide]
+- variables.css:
+  :root{
+    --w-bg:#fff; --w-fg:#000; --w-muted:#444; --w-line:#ddd; --w-surface:#fff;
+    --b-bg:#000; --b-fg:#fff; --b-muted:#bbb; --b-line:#222; --b-surface:#111;
+    --radius:12px; --space:16px; --maxw:1200px;
+    --font:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    --shadow:0 2px 12px rgba(0,0,0,.08);
+  }
+- global.css:
+  - Simple reset (*, html, body, img, a, button)
+  - body{font-family:var(--font); margin:0;}
+  - .container{max-width:var(--maxw); margin:0 auto; padding:calc(var(--space)*2);}
+  - .section{padding:clamp(56px,8vw,120px) 0;}
+  - .section--white{background:var(--w-bg); color:var(--w-fg);}
+  - .section--black{background:var(--b-bg); color:var(--b-fg);}
+  - .card{border-radius:var(--radius); border:1px solid; overflow:hidden;}
+    .card--white{background:var(--w-surface); border-color:var(--w-line);}
+    .card--black{background:var(--b-surface); border-color:var(--b-line);}
+  - a,button:hover{filter:brightness(.9);}
+  - :focus-visible{outline:2px solid currentColor; outline-offset:2px;}
+  - @media (prefers-reduced-motion:reduce){*{animation:none !important; transition:none !important;}}
+
+[Global Layout]
+- Navbar: white background + black text, subtle shadow on scroll; active link underlined or thicker.
+- Footer: always white theme, thin gray divider, black text, placeholder company info, © AIRET.
+- SectionHeader: h2 + subtitle text, adapting to section theme.
+
+[Pages & Sections]
+
+1) Home ("/")
+  A. Hero (section--white)
+     - <video autoplay muted loop playsInline src="/videos/movie.mp4">, object-fit:cover
+     - Optional gradient overlay for readability
+     - Centered text:
+       Title: “AIRET” (black)
+       Subtitle: “Museum-grade Shoe Care & Display” (dark gray)
+  B. Why AIRET (section--black)
+     - StatStrip with 3 points:
+       • Preservation Quality — leather moisture deviation within ±2%
+       • Hygiene Reliability — UV-C sterilization 99.9% (lab tested)
+       • Operational Efficiency — maintenance time reduced by 60%
+  C. Core Features (section--white, FeatureGrid)
+     - UV-C Sterilization
+     - Precision Humidity & Air Circulation
+     - Exhibition Lighting
+     - Remote Monitoring
+  D. Product Preview (section--black)
+     - ProductCard grid: Built-in / Stand-alone / Lite / Pro
+     - Each card: grayscale image placeholder, summary, 2–3 specs, link → /product
+  E. News Preview (section--white)
+     - Latest 2–3 NewsCard items (title/date/summary/link)
+
+2) About ("/about")
+  A. Vision & Mission (section--black)
+     - 2–3 paragraphs: “Protect & Present collections with science-grade care.”
+  B. Founder (section--white)
+     - Name, title, short profile, grayscale photo placeholder
+  C. Team (section--black)
+     - TeamGrid: members with name, role, one-line intro
+  D. Company Intro (section--white)
+     - Timeline of milestones, partner/partner logos (placeholders)
+
+3) Product ("/product")
+  A. Product Line (section--white)
+     - 4 ProductCards: Built-in / Stand-alone / Lite / Pro
+  B. Specifications (section--black)
+     - SpecTable with fields:
+       Dimensions, Capacity, Power/Noise, Materials/Finish, Door, Lighting, UV-C, Filters, Networking, Warranty
+
+4) Patents ("/patents")
+  A. Patent List (section--white)
+     - PatentCard items: title, number, status, date, short description
+  B. Diagrams (section--black)
+     - Grayscale diagram placeholders with captions
+
+5) News ("/news")
+  A. Feed (section--white)
+     - NewsCard list: grayscale thumbnail, title, date, summary, link (#)
+  B. Updates (section--black)
+     - Text log of recent activities
+
+[Static Data Examples]
+- products.js:
+  export default [
+    { key:'built-in', name:'Built-in', summary:'Fully integrated into furniture.', specs:['Capacity: 8/24/48 pairs','Lighting: high CRI','Networking: Wi-Fi'] },
+    { key:'stand-alone', name:'Stand-alone', summary:'Independent structure, easy maintenance.', specs:['Flexible installation','Low noise','Remote monitoring'] },
+    { key:'lite', name:'Lite', summary:'Compact model for 1–2 pairs.', specs:['Beginner friendly','Small footprint','Essential care'] },
+    { key:'pro', name:'Pro (Enterprise)', summary:'Large-capacity for retail/museum/hotel.', specs:['Multi-display','Remote monitoring','Serviceable modules'] },
+  ];
+- team.js:
+  export default {
+    founder:{ name:'Name Surname', title:'Founder & CEO', bio:'Short profile text.' },
+    members:[
+      { name:'Member A', role:'Engineering', note:'Hardware & control' },
+      { name:'Member B', role:'Design', note:'Product & UI/UX' },
+      { name:'Member C', role:'Operations', note:'Supply & QA' },
+    ]
+  };
+- patents.js:
+  export default [
+    { title:'UV-C Shielded Module', number:'KR10-XXXXXXX', status:'Registered', date:'2025-01-15', desc:'Shielded UV-C assembly for safe sterilization.' },
+    { title:'Humidity Control Duct', number:'KR10-YYYYYYY', status:'Pending', date:'2025-05-02', desc:'Precision airflow and humidity distribution.' },
+  ];
+- news.js:
+  export default [
+    { title:'AIRET featured in premium retail showcase', date:'2025-09-01', summary:'Exhibition-grade shoe care demo.', link:'#' },
+    { title:'Prototype update and lab results', date:'2025-08-10', summary:'Stability and UV-C test highlights.', link:'#' },
+  ];
+
+[Interactions/Accessibility]
+- Hover: brightness/opacity only (no color)
+- Focus: 2px outline using currentColor
+- SectionHeader fade-up animation on scroll (200–300ms), reduced-motion respected
+- Hero text must remain visible if video fails to load
+
+[Completion Criteria]
+- All routes render correctly
+- Hero video autoplay works (autoplay, muted, loop, playsInline)
+- Sections alternate White ↔ Black with proper contrast
+- Static data from /content appears in cards/tables
+- Runs in Replit without backend
