@@ -103,7 +103,7 @@ export default function Home() {
           <div style={{ position: "absolute", left: "5%", top: "50%", transform: "translateY(-50%)" }}>
             <div style={{ textAlign: "left", color: "#fff" }} className="fade-up" data-testid="hero-content">
               <h1 style={{ fontSize: "clamp(3rem, 8vw, 4.5rem)", fontWeight: "bold", marginBottom: "1.5rem", lineHeight: "1.1" }} data-testid="text-hero-title">
-                Luxury Built-in<br />ShoeCare System
+                Luxury Built-in<br />Shoe Care System
               </h1>
               <p style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.25rem)", opacity: "0.9", lineHeight: "1.4" }} data-testid="text-hero-subtitle">
                 Gallery-style display integrated with AI-powered maintenance<br />designed for today's modern luxury lifestyle.
