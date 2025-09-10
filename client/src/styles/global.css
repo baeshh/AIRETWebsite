@@ -135,13 +135,13 @@ a:hover, button:hover {
 
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: calc(var(--space) * 1.5);
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: calc(var(--space) * 2);
 }
 
@@ -219,6 +219,16 @@ a:hover, button:hover {
     gap: var(--space);
   }
   
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space);
+  }
+  
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space);
+  }
+  
   .hero-content {
     padding: calc(var(--space) * 2) var(--space);
   }
@@ -233,6 +243,19 @@ a:hover, button:hover {
   
   .desktop-menu {
     display: none;
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(var(--space) * 1.5);
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(var(--space) * 2);
   }
 }
 

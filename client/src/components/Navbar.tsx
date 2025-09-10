@@ -27,10 +27,10 @@ export default function Navbar() {
     <nav className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`}>
       <div className="container">
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "4rem" }}>
+          <Link to="/" style={{ fontSize: "1.25rem", fontWeight: "bold" }} data-testid="link-home-logo">
+            AIRET
+          </Link>
           <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
-            <Link to="/" style={{ fontSize: "1.25rem", fontWeight: "bold" }} data-testid="link-home-logo">
-              AIRET
-            </Link>
             <div className="desktop-menu" style={{ display: "flex", gap: "1.5rem" }}>
               {navLinks.map((link) => (
                 <Link
@@ -43,13 +43,12 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
-          </div>
-          <button
-            className="mobile-menu"
-            style={{ padding: "0.5rem" }}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            data-testid="button-mobile-menu"
-          >
+            <button
+              className="mobile-menu"
+              style={{ padding: "0.5rem" }}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              data-testid="button-mobile-menu"
+            >
             <span style={{ position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: "0" }}>
               Open menu
             </span>
@@ -58,7 +57,8 @@ export default function Navbar() {
               <span style={{ width: "100%", height: "2px", background: "currentColor" }}></span>
               <span style={{ width: "100%", height: "2px", background: "currentColor" }}></span>
             </div>
-          </button>
+            </button>
+          </div>
         </div>
         
         {isMobileMenuOpen && (
