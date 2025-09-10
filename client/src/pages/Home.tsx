@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero Section (White) */}
-      <section className="section section--white" style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "flex-start", justifyContent: "center", overflow: "hidden", paddingTop: "8rem" }}>
+      <section className="section section--white" style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "flex-start", justifyContent: "center", overflow: "hidden", paddingTop: "6rem" }}>
         {/* Background video */}
         {!videoError ? (
           <video

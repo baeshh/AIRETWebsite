@@ -6,7 +6,7 @@ export default function Patents() {
   return (
     <main>
       {/* Patent List Section (White) */}
-      <section className="section section--white" style={{ paddingTop: "8rem" }}>
+      <section className="section section--white" style={{ paddingTop: "6rem" }}>
         <div className="container">
           <SectionHeader
             title="Patents & Innovation"

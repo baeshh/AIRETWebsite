@@ -68,7 +68,7 @@ export default function Product() {
   return (
     <main>
       {/* Product Line Section (White) */}
-      <section className="section section--white" style={{ paddingTop: "8rem" }}>
+      <section className="section section--white" style={{ paddingTop: "6rem" }}>
         <div className="container">
           <SectionHeader
             title="Product Line"

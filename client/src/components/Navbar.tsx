@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`}>
       <div className="container">
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "4rem" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "3rem" }}>
           <Link to="/" style={{ fontSize: "1.25rem", fontWeight: "bold" }} data-testid="link-home-logo">
             AIRET
           </Link>

@@ -15,7 +15,7 @@ export default function About() {
   return (
     <main>
       {/* Vision & Mission Section (Black) */}
-      <section className="section section--black" style={{ paddingTop: "8rem" }}>
+      <section className="section section--black" style={{ paddingTop: "6rem" }}>
         <div className="container">
           <SectionHeader
             title="About AIRET"
