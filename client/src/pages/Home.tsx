@@ -99,15 +99,13 @@ export default function Home() {
           </div>
         )}
         
-        <div className="hero-overlay"></div>
-        
-        <div className="container" style={{ position: "relative", zIndex: "10" }}>
+        <div style={{ position: "relative", zIndex: "10", paddingLeft: "2rem" }}>
           <div style={{ display: "flex", alignItems: "center", minHeight: "100vh", paddingTop: "3rem" }}>
-            <div style={{ textAlign: "left", maxWidth: "50%", color: "#000" }} className="fade-up" data-testid="hero-content">
+            <div style={{ textAlign: "left", maxWidth: "50%", color: "#fff" }} className="fade-up" data-testid="hero-content">
               <h1 style={{ fontSize: "clamp(3rem, 8vw, 4.5rem)", fontWeight: "bold", marginBottom: "1.5rem", lineHeight: "1.1" }} data-testid="text-hero-title">
-                Luxury Built-in<br />Shoe Care System
+                Luxury Built-in<br />ShoeCare System
               </h1>
-              <p style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.25rem)", opacity: "0.8", lineHeight: "1.4" }} data-testid="text-hero-subtitle">
+              <p style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.25rem)", opacity: "0.9", lineHeight: "1.4" }} data-testid="text-hero-subtitle">
                 Gallery-style display integrated with AI-powered maintenance<br />designed for today's modern luxury lifestyle.
               </p>
             </div>
