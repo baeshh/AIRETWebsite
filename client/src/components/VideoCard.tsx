@@ -67,7 +67,7 @@ export default function VideoCard({ video, theme = "white" }: VideoCardProps) {
           }}
           data-testid={`link-video-watch-${video.id}`}
         >
-          YouTube에서 보기 →
+          Watch on Youtube →
         </a>
       </div>
     </article>
