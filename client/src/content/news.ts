@@ -1,4 +1,11 @@
-export default [
+export interface NewsItem {
+  title: string;
+  date: string;
+  summary: string;
+  link: string;
+}
+
+const news: NewsItem[] = [
   {
     title: '1',
     date: '2025-09-12',
@@ -18,3 +25,5 @@ export default [
     link: '#'
   },
 ];
+
+export default news;

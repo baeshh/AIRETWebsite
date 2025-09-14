@@ -1,10 +1,13 @@
 import { useState } from "react";
 import SectionHeader from "../components/SectionHeader";
 import NewsCard from "../components/NewsCard";
-import news from "../content/news";
+import VideoCard from "../components/VideoCard";
+import news, { type NewsItem } from "../content/news";
+import videos from "../content/videos";
 
 export default function News() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   
   const updates = [
     {
@@ -37,6 +40,23 @@ export default function News() {
     for (let i = 0; i < 4; i++) {
       const index = (currentIndex + i) % news.length;
       visible.push(news[index]);
+    }
+    return visible;
+  };
+
+  const nextVideoSlide = () => {
+    setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+  };
+
+  const prevVideoSlide = () => {
+    setCurrentVideoIndex((prev) => (prev - 1 + videos.length) % videos.length);
+  };
+
+  const getVisibleVideos = () => {
+    const visible = [];
+    for (let i = 0; i < 3; i++) {
+      const index = (currentVideoIndex + i) % videos.length;
+      visible.push(videos[index]);
     }
     return visible;
   };
@@ -173,6 +193,145 @@ export default function News() {
                       }}
                     >
                       <NewsCard news={item} theme="white" />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* YouTube Videos Section (White) */}
+      <section className="section section--white">
+        <div className="container">
+          <SectionHeader
+            title="Featured Videos"
+            subtitle="Watch our latest presentations and insights"
+            theme="white"
+          />
+          
+          {/* Video Carousel */}
+          <div style={{ position: "relative", maxWidth: "80rem", margin: "0 auto", padding: "0 5rem" }}>
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevVideoSlide}
+              style={{
+                position: "absolute",
+                left: "0",
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: "10",
+                width: "3.5rem",
+                height: "3.5rem",
+                borderRadius: "50%",
+                border: "2px solid #e5e7eb",
+                background: "white",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "1.5rem",
+                color: "#374151",
+                transition: "all 0.2s ease",
+                boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)"
+              }}
+              data-testid="button-video-prev"
+              onMouseEnter={(e) => {
+                (e.target as HTMLButtonElement).style.background = "#f9fafb";
+                (e.target as HTMLButtonElement).style.borderColor = "#9ca3af";
+                (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLButtonElement).style.background = "white";
+                (e.target as HTMLButtonElement).style.borderColor = "#e5e7eb";
+                (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1)";
+              }}
+            >
+              ‹
+            </button>
+            
+            <button
+              onClick={nextVideoSlide}
+              style={{
+                position: "absolute",
+                right: "0",
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: "10",
+                width: "3.5rem",
+                height: "3.5rem",
+                borderRadius: "50%",
+                border: "2px solid #e5e7eb",
+                background: "white",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "1.5rem",
+                color: "#374151",
+                transition: "all 0.2s ease",
+                boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)"
+              }}
+              data-testid="button-video-next"
+              onMouseEnter={(e) => {
+                (e.target as HTMLButtonElement).style.background = "#f9fafb";
+                (e.target as HTMLButtonElement).style.borderColor = "#9ca3af";
+                (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLButtonElement).style.background = "white";
+                (e.target as HTMLButtonElement).style.borderColor = "#e5e7eb";
+                (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1)";
+              }}
+            >
+              ›
+            </button>
+
+            {/* Video Cards Container with clipping */}
+            <div 
+              style={{
+                position: "relative",
+                overflow: "hidden",
+                margin: "0 4rem"
+              }}
+              data-testid="video-carousel"
+            >
+              <div 
+                style={{
+                  display: "flex",
+                  gap: "1.5rem",
+                  width: "calc(100% + 33.33%)",
+                  transform: "translateX(-16.67%)",
+                  alignItems: "stretch"
+                }}
+              >
+                {getVisibleVideos().map((video, index) => {
+                  const isCenter = index === 1;
+                  const isEdge = index === 0 || index === 2;
+                  
+                  return (
+                    <div
+                      key={`${currentVideoIndex}-${index}`}
+                      style={{
+                        flex: "0 0 33.33%",
+                        opacity: isEdge ? "0.7" : "1",
+                        transform: isEdge ? "scale(0.95)" : "scale(1)",
+                        transition: "all 0.3s ease",
+                        cursor: "pointer",
+                        position: "relative"
+                      }}
+                      data-testid={`video-carousel-item-${index}`}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLDivElement).style.transform = isEdge ? "scale(1)" : "scale(1.02)";
+                        (e.currentTarget as HTMLDivElement).style.zIndex = "5";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLDivElement).style.transform = isEdge ? "scale(0.95)" : "scale(1)";
+                        (e.currentTarget as HTMLDivElement).style.zIndex = "1";
+                      }}
+                    >
+                      <VideoCard video={video} theme="white" />
                     </div>
                   );
                 })}
