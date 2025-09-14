@@ -16,14 +16,14 @@ const videos: VideoItem[] = [
   },
   {
     id: "tNoYuRgrwAQ",
-    title: "Product Development Journey",
+    title: "Digital Health",
     url: "https://youtu.be/tNoYuRgrwAQ",
     embedUrl: "https://www.youtube.com/embed/tNoYuRgrwAQ",
     description: "Behind the scenes of our product development process"
   },
   {
     id: "CK12Y3AEqRQ",
-    title: "Future of AI Technology",
+    title: "Introduce Airet",
     url: "https://www.youtube.com/watch?v=CK12Y3AEqRQ&t=4s",
     embedUrl: "https://www.youtube.com/embed/CK12Y3AEqRQ?start=4",
     description: "Exploring the future possibilities with AI advancement"
