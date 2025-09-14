@@ -200,7 +200,7 @@ export default function Home() {
         <div className="container">
           <SectionHeader
             title="Product Preview"
-            subtitle="Choose the perfect solution for your needs"
+            subtitle="Camera, chip, UV-C, and display integrated for smart shoe care."
             theme="black"
           />
           <div className="product-grid">

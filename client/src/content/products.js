@@ -7,7 +7,7 @@ export default [
   {
     key: '1',
     name: 'UV-C Sterilization System',
-    summary: 'Advanced UV-C technology for comprehensive shoe sterilization and odor elimination',
+    summary: 'Advanced UV-C for shoe sterilization and odor removal',
     specs: ['UV-C LED Array', 'Safety Interlock', 'Automated Cycles'],
     icon: uvcImage
   },

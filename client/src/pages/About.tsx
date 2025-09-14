@@ -1,7 +1,7 @@
 import SectionHeader from "../components/SectionHeader";
 import TeamGrid from "../components/TeamGrid";
 import team from "../content/team";
-import visionImage from "@assets/KakaoTalk_Photo_2025-09-14-14-51-30_1757829194964.jpeg";
+import visionImage from "@assets/main_1757842353489.png";
 
 export default function About() {
   const allMembers = [
