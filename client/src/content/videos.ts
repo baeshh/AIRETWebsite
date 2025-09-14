@@ -9,7 +9,7 @@ export interface VideoItem {
 const videos: VideoItem[] = [
   {
     id: "RdSAp-2JqZE",
-    title: "AIRET Innovation Demo",
+    title: "Smart home",
     url: "https://youtu.be/RdSAp-2JqZE",
     embedUrl: "https://www.youtube.com/embed/RdSAp-2JqZE",
     description: "Discover AIRET's groundbreaking technology solutions"
