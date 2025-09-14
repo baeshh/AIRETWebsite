@@ -92,7 +92,7 @@ export default function Home() {
             }}
             data-testid="hero-video"
           >
-            <source src="/videos/movie.mp4" type="video/mp4" />
+            <source src="/videos/movie1.mp4" type="video/mp4" />
           </video>
         ) : (
           <div
