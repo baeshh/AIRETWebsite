@@ -110,7 +110,7 @@ export default function Home() {
               <div style={{ fontSize: "3.75rem", marginBottom: "1rem" }}>
                 📹
               </div>
-              <p>movie.mp4 background video</p>
+              <p>movie1.mp4 background video</p>
               <p style={{ fontSize: "0.875rem", marginTop: "0.5rem" }}>
                 autoplay, muted, loop, playsInline
               </p>
