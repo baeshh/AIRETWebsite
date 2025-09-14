@@ -1,6 +1,6 @@
 export default {
   founder: {
-    name: 'Name Surname',
+    name: 'Austin Koo',
     title: 'Founder & CEO',
     bio: 'Short profile text.'
   },
@@ -12,38 +12,38 @@ export default {
     },
     {
       name: 'Member B',
-      role: 'Design',
-      note: 'Product & UI/UX'
+      role: '.',
+      note: '.'
     },
     {
       name: 'Member C',
-      role: 'Operations',
-      note: 'Supply & QA'
+      role: '.',
+      note: '.'
     },
     {
       name: 'Member D',
-      role: 'Software',
-      note: 'Mobile & Cloud'
+      role: '.',
+      note: '.'
     },
     {
       name: 'Member E',
       role: 'Marketing',
-      note: 'Growth & Strategy'
+      note: '.'
     },
     {
       name: 'Member F',
       role: 'Research',
-      note: 'AI & Vision'
+      note: '.'
     },
     {
       name: 'Member G',
       role: 'Sales',
-      note: 'Business Dev'
+      note: '.'
     },
     {
       name: 'Member H',
-      role: 'Finance',
-      note: 'Operations & Legal'
+      role: '.',
+      note: '.'
     },
   ]
 };
