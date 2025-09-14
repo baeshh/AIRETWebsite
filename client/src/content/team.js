@@ -2,17 +2,17 @@ export default {
   founder: {
     name: 'Austin Koo',
     title: 'Founder & CEO',
-    bio: 'Short profile text.'
+    bio: 'leading AIRET with a vision for smart luxury living.'
   },
   members: [
     {
-      name: 'Member A',
-      role: 'Engineering',
-      note: 'Hardware & control'
+      name: 'Subin Jang',
+      role: '.',
+      note: '.'
     },
     {
-      name: 'Member B',
-      role: '.',
+      name: 'Seunghwan Bae',
+      role: 'Developer',
       note: '.'
     },
     {
@@ -27,17 +27,17 @@ export default {
     },
     {
       name: 'Member E',
-      role: 'Marketing',
+      role: '.',
       note: '.'
     },
     {
       name: 'Member F',
-      role: 'Research',
+      role: '.',
       note: '.'
     },
     {
       name: 'Member G',
-      role: 'Sales',
+      role: '.',
       note: '.'
     },
     {
