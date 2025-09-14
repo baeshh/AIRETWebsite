@@ -1,30 +1,35 @@
+import uvcImage from "@assets/UVC_1757840550097.png";
+import displayImage from "@assets/display_1757840550096.png";
+import cameraImage from "@assets/camera_1757840550096.png";
+import chipImage from "@assets/chip_1757840550097.png";
+
 export default [
   {
     key: '1',
-    name: '1',
-    summary: '1',
-    specs: ['1', '2', '3'],
-    icon: '🏗️'
+    name: 'UV-C Sterilization System',
+    summary: 'Advanced UV-C technology for comprehensive shoe sterilization and odor elimination',
+    specs: ['UV-C LED Array', 'Safety Interlock', 'Automated Cycles'],
+    icon: uvcImage
   },
   {
-    key: '1',
-    name: '2',
-    summary: '3',
-    specs: ['1', '2', '3'],
-    icon: '🏛️'
+    key: '2',
+    name: 'Smart Display Interface',
+    summary: 'Intuitive touchscreen control with real-time monitoring and care customization',
+    specs: ['Touch Display', 'Weather Integration', 'Care Tracking'],
+    icon: displayImage
   },
   {
-    key: '1',
-    name: '2',
-    summary: '1',
-    specs: ['1', '1', '1'],
-    icon: '📱'
+    key: '3',
+    name: 'AI Vision System',
+    summary: 'Intelligent shoe recognition and automatic care selection using advanced image analysis',
+    specs: ['Auto Recognition', 'Material Detection', 'Care Optimization'],
+    icon: cameraImage
   },
   {
-    key: '1',
-    name: '1',
-    summary: '1',
-    specs: ['1', '1', '1'],
-    icon: '🏢'
+    key: '4',
+    name: 'Smart Control Unit',
+    summary: 'Powerful processing unit orchestrating all system functions with precision and reliability',
+    specs: ['IoT Connectivity', 'Cloud Sync', 'Remote Control'],
+    icon: chipImage
   },
 ];

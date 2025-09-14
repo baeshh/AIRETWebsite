@@ -41,7 +41,20 @@ export default function ProductCard({ product, theme = "black" }: ProductCardPro
             color: theme === "white" ? "#9ca3af" : "#6b7280",
           }}
         >
-          <span style={{ fontSize: "2.5rem" }}>{product.icon || "📦"}</span>
+          {product.icon && typeof product.icon === 'string' && product.icon.includes('.png') ? (
+            <img 
+              src={product.icon} 
+              alt={product.name}
+              style={{ 
+                width: "100%", 
+                height: "100%", 
+                objectFit: "cover",
+                borderRadius: "var(--radius)"
+              }}
+            />
+          ) : (
+            <span style={{ fontSize: "2.5rem" }}>{product.icon || "📦"}</span>
+          )}
         </div>
       </div>
       <div style={{ padding: "1.5rem" }}>
