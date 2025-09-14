@@ -14,7 +14,7 @@ export default [
   {
     title: '3',
     date: '2025-09-14',
-    summary: 'Industry recognition for innovative user experience in home automation systems.',
+    summary: '3',
     link: '#'
   },
 ];
