@@ -15,47 +15,62 @@ export default function Home() {
     {
       value: "±2%",
       title: "Preservation Quality",
-      description: "Leather moisture deviation within ±2%"
+      description: "Leather moisture deviation within ±2%",
     },
     {
       value: "99.9%",
       title: "Hygiene Reliability",
-      description: "UV-C sterilization (lab tested)"
+      description: "UV-C sterilization (lab tested)",
     },
     {
       value: "60%",
-      title: "Operational Efficiency", 
-      description: "Maintenance time reduced by 60%"
-    }
+      title: "Operational Efficiency",
+      description: "Maintenance time reduced by 60%",
+    },
   ];
 
   const features = [
     {
       icon: "🔬",
       title: "UV-C Sterilization",
-      description: "Advanced UV-C technology eliminates 99.9% of bacteria and fungi while preserving material integrity"
+      description:
+        "Advanced UV-C technology eliminates 99.9% of bacteria and fungi while preserving material integrity",
     },
     {
       icon: "💨",
       title: "Precision Humidity & Air Circulation",
-      description: "Climate-controlled environment maintains optimal conditions for leather preservation"
+      description:
+        "Climate-controlled environment maintains optimal conditions for leather preservation",
     },
     {
       icon: "💡",
       title: "Exhibition Lighting",
-      description: "Museum-grade LED lighting with high CRI for true color representation"
+      description:
+        "Museum-grade LED lighting with high CRI for true color representation",
     },
     {
       icon: "📱",
       title: "Remote Monitoring",
-      description: "Smart connectivity for real-time status updates and remote control capabilities"
-    }
+      description:
+        "Smart connectivity for real-time status updates and remote control capabilities",
+    },
   ];
 
   return (
     <main>
       {/* Hero Section (White) */}
-      <section className="section section--white" style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "flex-start", justifyContent: "center", overflow: "hidden", paddingTop: "6rem" }}>
+      <section
+        className="section section--white"
+        style={{
+          position: "relative",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "center",
+          overflow: "hidden",
+          paddingTop: "6rem",
+        }}
+      >
         {/* Background video */}
         {!videoError ? (
           <video
@@ -65,15 +80,15 @@ export default function Home() {
             loop
             playsInline
             onError={(e) => {
-              console.log('Video error:', e);
+              console.log("Video error:", e);
               setVideoError(true);
             }}
             onLoadedData={() => {
-              console.log('Video loaded successfully');
+              console.log("Video loaded successfully");
               setVideoLoaded(true);
             }}
             onCanPlay={() => {
-              console.log('Video can play');
+              console.log("Video can play");
             }}
             data-testid="hero-video"
           >
@@ -92,21 +107,64 @@ export default function Home() {
             data-testid="hero-video-fallback"
           >
             <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "3.75rem", marginBottom: "1rem" }}>📹</div>
+              <div style={{ fontSize: "3.75rem", marginBottom: "1rem" }}>
+                📹
+              </div>
               <p>movie.mp4 background video</p>
-              <p style={{ fontSize: "0.875rem", marginTop: "0.5rem" }}>autoplay, muted, loop, playsInline</p>
+              <p style={{ fontSize: "0.875rem", marginTop: "0.5rem" }}>
+                autoplay, muted, loop, playsInline
+              </p>
             </div>
           </div>
         )}
-        
-        <div style={{ position: "absolute", top: "0", left: "0", width: "100%", height: "100%", zIndex: "10" }}>
-          <div style={{ position: "absolute", left: "5%", top: "50%", transform: "translateY(-50%)" }}>
-            <div style={{ textAlign: "left", color: "#fff" }} className="fade-up" data-testid="hero-content">
-              <h1 style={{ fontSize: "clamp(3rem, 8vw, 4.5rem)", fontWeight: "bold", marginBottom: "1.5rem", lineHeight: "1.1" }} data-testid="text-hero-title">
-                Luxury Built-in<br />Shoe Care System
+
+        <div
+          style={{
+            position: "absolute",
+            top: "0",
+            left: "0",
+            width: "100%",
+            height: "100%",
+            zIndex: "10",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              left: "5%",
+              top: "50%",
+              transform: "translateY(-50%)",
+            }}
+          >
+            <div
+              style={{ textAlign: "left", color: "#fff" }}
+              className="fade-up"
+              data-testid="hero-content"
+            >
+              <h1
+                style={{
+                  fontSize: "clamp(3rem, 8vw, 4.5rem)",
+                  fontWeight: "bold",
+                  marginBottom: "1.5rem",
+                  lineHeight: "1.1",
+                }}
+                data-testid="text-hero-title"
+              >
+                Luxury Built-in
+                <br />
+                Shoe Care System
               </h1>
-              <p style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.25rem)", opacity: "0.9", lineHeight: "1.4" }} data-testid="text-hero-subtitle">
-                Gallery-style display integrated with AI-powered maintenance<br />designed for today's modern luxury lifestyle.
+              <p
+                style={{
+                  fontSize: "clamp(1.125rem, 2.5vw, 1.25rem)",
+                  opacity: "0.9",
+                  lineHeight: "1.4",
+                }}
+                data-testid="text-hero-subtitle"
+              >
+                Gallery-style display integrated with AI-powered maintenance
+                <br />
+                designed for today's modern luxury lifestyle.
               </p>
             </div>
           </div>

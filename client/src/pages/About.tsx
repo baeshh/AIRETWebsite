@@ -1,6 +1,7 @@
 import SectionHeader from "../components/SectionHeader";
 import TeamGrid from "../components/TeamGrid";
 import team from "../content/team";
+import visionImage from "@assets/KakaoTalk_Photo_2025-09-14-14-51-30_1757829194964.jpeg";
 
 export default function About() {
   const allMembers = [
@@ -19,7 +20,7 @@ export default function About() {
         <div className="container">
           <SectionHeader
             title="About AIRET"
-            subtitle="Protecting and presenting collections with science-grade care"
+            subtitle="Smart homes begin at the entrance."
             theme="black"
           />
           
@@ -30,24 +31,31 @@ export default function About() {
                   Our Vision
                 </h3>
                 <p style={{ opacity: "0.8", marginBottom: "1rem" }} data-testid="text-vision-paragraph-1">
-                  AIRET revolutionizes luxury item preservation by combining museum-grade conservation techniques with modern display technology.
+                  AIRET is not just a shoe care device it is a smart built-in system equipped with UV-C sterilization, humidity control, and display features.
                 </p>
                 <p style={{ opacity: "0.8" }} data-testid="text-vision-paragraph-2">
-                  We believe that valuable collections deserve the same level of care and presentation found in the world's finest museums.
+                  We transform the entrance from a simple passageway into the starting point of the smart home and the first experience of a luxury lifestyle.
                 </p>
               </div>
               <div
                 style={{
                   aspectRatio: "1",
-                  background: "#374151",
                   borderRadius: "var(--radius)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  overflow: "hidden",
                 }}
-                data-testid="img-vision-placeholder"
+                data-testid="img-vision-container"
               >
-                <span style={{ fontSize: "3.75rem" }}>🏛️</span>
+                <img 
+                  src={visionImage} 
+                  alt="AIRET Vision" 
+                  style={{ 
+                    width: "100%", 
+                    height: "100%", 
+                    objectFit: "cover",
+                    display: "block" 
+                  }}
+                  data-testid="img-vision"
+                />
               </div>
             </div>
           </div>
