@@ -6,64 +6,64 @@ import products from "../content/products";
 export default function Product() {
   const specifications = [
     {
-      "Specification": "Dimensions (W×D×H)",
-      "Built-in": "Custom fit",
-      "Stand-alone": "80×60×200cm",
-      "Lite": "40×30×50cm",
-      "Pro": "120×80×220cm"
+      "1": "2",
+      "3": "4",
+      "5": "6",
+      "7": "-",
+      "-": "-"
     },
     {
-      "Specification": "Capacity",
-      "Built-in": "8-48 pairs",
-      "Stand-alone": "12-24 pairs",
-      "Lite": "1-2 pairs",
-      "Pro": "48-96 pairs"
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-"
     },
     {
-      "Specification": "Power Consumption",
-      "Built-in": "45-80W",
-      "Stand-alone": "60W",
-      "Lite": "25W",
-      "Pro": "120W"
+      "-": "-n",
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-"
     },
     {
-      "Specification": "Noise Level",
-      "Built-in": "< 30dB",
-      "Stand-alone": "< 35dB",
-      "Lite": "< 25dB",
-      "Pro": "< 40dB"
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-"
     },
     {
-      "Specification": "Materials",
-      "Built-in": "Aluminum/Glass",
-      "Stand-alone": "Steel/Glass",
-      "Lite": "ABS/Acrylic",
-      "Pro": "Steel/Glass"
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-"
     },
     {
-      "Specification": "UV-C System",
-      "Built-in": "Integrated",
-      "Stand-alone": "Integrated",
-      "Lite": "Optional",
-      "Pro": "Advanced"
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-"
     },
     {
-      "Specification": "Networking",
-      "Built-in": "Wi-Fi/Ethernet",
-      "Stand-alone": "Wi-Fi",
-      "Lite": "Bluetooth",
-      "Pro": "Wi-Fi/Ethernet/LTE"
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-"
     },
     {
-      "Specification": "Warranty",
-      "Built-in": "3 years",
-      "Stand-alone": "2 years",
-      "Lite": "1 year",
-      "Pro": "5 years"
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-",
+      "-": "-"
     }
   ];
 
-  const headers = ["Specification", "Built-in", "Stand-alone", "Lite", "Pro"];
+  const headers = ["제품사양1", "제품사양2", "제품사양3", "제품사양3", "제품사양4"];
 
   return (
     <main>
@@ -88,7 +88,7 @@ export default function Product() {
         <div className="container">
           <SectionHeader
             title="Technical Specifications"
-            subtitle="Detailed comparison of all AIRET models"
+            subtitle="Detailed comparison of AIRET models"
             theme="black"
           />
           <SpecTable

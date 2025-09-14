@@ -87,15 +87,15 @@ export default function About() {
             <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
               <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-1">
                 <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>2024 - Foundation</h4>
-                <p style={{ opacity: "0.8" }}>AIRET founded with a mission to revolutionize luxury item preservation through scientific innovation.</p>
+                <p style={{ opacity: "0.8" }}>일대기</p>
               </div>
               <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-2">
                 <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>2025 - First Prototype</h4>
-                <p style={{ opacity: "0.8" }}>Successful development and testing of our first UV-C integrated preservation system.</p>
+                <p style={{ opacity: "0.8" }}>일대기</p>
               </div>
               <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-3">
                 <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>2025 - Patent Applications</h4>
-                <p style={{ opacity: "0.8" }}>Filed key patents for our proprietary UV-C shielding and humidity control technologies.</p>
+                <p style={{ opacity: "0.8" }}>일대기</p>
               </div>
             </div>
           </div>

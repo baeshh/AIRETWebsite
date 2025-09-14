@@ -1,16 +1,16 @@
 export default [
   {
-    title: 'UV-C Shielded Module',
-    number: 'KR10-XXXXXXX',
+    title: '특허',
+    number: '1234123ㅂ42134',
     status: 'Registered',
-    date: '2025-01-15',
-    desc: 'Shielded UV-C assembly for safe sterilization.'
+    date: '2025-09-14',
+    desc: '12341234'
   },
   {
-    title: 'Humidity Control Duct',
-    number: 'KR10-YYYYYYY',
+    title: '특허',
+    number: '12341234',
     status: 'Pending',
-    date: '2025-05-02',
-    desc: 'Precision airflow and humidity distribution.'
+    date: '2025-09-15',
+    desc: '123412341234'
   },
 ];

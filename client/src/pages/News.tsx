@@ -5,19 +5,19 @@ import news from "../content/news";
 export default function News() {
   const updates = [
     {
-      date: "2025-08-25",
-      title: "Lab Testing Phase Complete",
-      description: "Successfully completed comprehensive UV-C efficacy testing with 99.9% sterilization rate confirmed."
+      date: "2025-09-14",
+      title: "기사",
+      description: "기사"
     },
     {
-      date: "2025-08-15",
-      title: "Partnership Agreement",
-      description: "Signed strategic partnership with leading luxury furniture manufacturer for Built-in model integration."
+      date: "2025-09-14",
+      title: "기사",
+      description: "기사"
     },
     {
-      date: "2025-08-05",
-      title: "Patent Filing Update",
-      description: "Additional patent applications submitted for advanced humidity sensor technology."
+      date: "2025-09-14",
+      title: "기사",
+      description: "기사"
     }
   ];
 

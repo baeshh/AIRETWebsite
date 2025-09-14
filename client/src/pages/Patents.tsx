@@ -10,7 +10,7 @@ export default function Patents() {
         <div className="container">
           <SectionHeader
             title="Patents & Innovation"
-            subtitle="Proprietary technology protecting your investments"
+            subtitle="Patented. Protected. Ahead."
             theme="white"
           />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "2rem" }}>

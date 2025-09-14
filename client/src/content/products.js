@@ -1,30 +1,30 @@
 export default [
   {
-    key: 'built-in',
-    name: 'Built-in',
-    summary: 'Fully integrated into furniture.',
-    specs: ['Capacity: 8/24/48 pairs', 'Lighting: high CRI', 'Networking: Wi-Fi'],
+    key: '1',
+    name: '1',
+    summary: '1',
+    specs: ['1', '2', '3'],
     icon: '🏗️'
   },
   {
-    key: 'stand-alone',
-    name: 'Stand-alone',
-    summary: 'Independent structure, easy maintenance.',
-    specs: ['Flexible installation', 'Low noise', 'Remote monitoring'],
+    key: '1',
+    name: '2',
+    summary: '3',
+    specs: ['1', '2', '3'],
     icon: '🏛️'
   },
   {
-    key: 'lite',
-    name: 'Lite',
-    summary: 'Compact model for 1–2 pairs.',
-    specs: ['Beginner friendly', 'Small footprint', 'Essential care'],
+    key: '1',
+    name: '2',
+    summary: '1',
+    specs: ['1', '1', '1'],
     icon: '📱'
   },
   {
-    key: 'pro',
-    name: 'Pro (Enterprise)',
-    summary: 'Large-capacity for retail/museum/hotel.',
-    specs: ['Multi-display', 'Remote monitoring', 'Serviceable modules'],
+    key: '1',
+    name: '1',
+    summary: '1',
+    specs: ['1', '1', '1'],
     icon: '🏢'
   },
 ];
