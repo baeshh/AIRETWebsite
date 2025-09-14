@@ -25,11 +25,11 @@ export default function News() {
   ];
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 2 >= news.length ? 0 : prev + 2));
+    setCurrentIndex((prev) => (prev + 1) % news.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 2 < 0 ? Math.max(0, news.length - 2) : prev - 2));
+    setCurrentIndex((prev) => (prev - 1 + news.length) % news.length);
   };
 
   const getVisibleNews = () => {
