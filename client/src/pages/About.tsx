@@ -4,14 +4,6 @@ import team from "../content/team";
 import visionImage from "@assets/main_1757842353489.png";
 
 export default function About() {
-  const allMembers = [
-    {
-      name: team.founder.name,
-      role: team.founder.title,
-      note: team.founder.bio,
-    },
-    ...team.members,
-  ];
 
   return (
     <main>
@@ -70,7 +62,63 @@ export default function About() {
             subtitle="The experts behind AIRET innovation"
             theme="white"
           />
-          <TeamGrid members={allMembers} theme="white" />
+          
+          {/* Founder Section - Emphasized */}
+          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+            <div
+              style={{
+                width: "12rem",
+                height: "12rem",
+                margin: "0 auto 2rem auto",
+                background: "#f3f4f6",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#9ca3af",
+                border: "4px solid #e5e7eb",
+              }}
+              data-testid="founder-avatar"
+            >
+              <span style={{ fontSize: "3rem" }}>👤</span>
+            </div>
+            <h3
+              style={{
+                fontSize: "2rem",
+                fontWeight: "bold",
+                marginBottom: "0.5rem",
+              }}
+              data-testid="founder-name"
+            >
+              {team.founder.name}
+            </h3>
+            <p
+              style={{
+                fontSize: "1.25rem",
+                opacity: "0.8",
+                fontWeight: "600",
+                marginBottom: "1rem",
+                color: "#4f46e5"
+              }}
+              data-testid="founder-title"
+            >
+              {team.founder.title}
+            </p>
+            <p
+              style={{
+                opacity: "0.7",
+                fontSize: "1rem",
+                maxWidth: "32rem",
+                margin: "0 auto"
+              }}
+              data-testid="founder-bio"
+            >
+              {team.founder.bio}
+            </p>
+          </div>
+
+          {/* Team Members Grid */}
+          <TeamGrid members={team.members} theme="white" />
         </div>
       </section>
 
