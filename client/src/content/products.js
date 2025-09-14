@@ -1,7 +1,7 @@
-import uvcImage from "@assets/UVC_1757840550097.png";
-import displayImage from "@assets/display_1757840550096.png";
-import cameraImage from "@assets/camera_1757840550096.png";
-import chipImage from "@assets/chip_1757840550097.png";
+import uvcImage from "@assets/UVC_1757840733155.png";
+import displayImage from "@assets/display_1757840733155.png";
+import cameraImage from "@assets/camera_1757840733154.png";
+import chipImage from "@assets/chip_1757840733155.png";
 
 export default [
   {
