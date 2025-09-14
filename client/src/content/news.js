@@ -8,11 +8,11 @@ export default [
   {
     title: '2',
     date: '2025-09-13',
-    summary: 'AIRET\'s proprietary shoe recognition system receives patent protection in multiple markets.',
+    summary: '2',
     link: '#'
   },
   {
-    title: 'Smart Display Interface Wins Design Award',
+    title: '3',
     date: '2025-09-14',
     summary: 'Industry recognition for innovative user experience in home automation systems.',
     link: '#'
