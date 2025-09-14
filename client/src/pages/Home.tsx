@@ -15,7 +15,7 @@ export default function Home() {
     {
       value: "±2%",
       title: "Preservation Quality",
-      description: "Leather moisture deviation within ±2%",
+      description: "Smart humidity and temperature control keeps leather moisture deviation within ±2%, ensuring museum-grade care.",
     },
     {
       value: "99.9%",
@@ -110,7 +110,7 @@ export default function Home() {
               <div style={{ fontSize: "3.75rem", marginBottom: "1rem" }}>
                 📹
               </div>
-              <p>movie1.mp4 background video</p>
+              <p>movie.mp4 background video</p>
               <p style={{ fontSize: "0.875rem", marginTop: "0.5rem" }}>
                 autoplay, muted, loop, playsInline
               </p>

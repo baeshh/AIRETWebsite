@@ -14,10 +14,10 @@ export default function Footer() {
           <div>
             <h5 style={{ fontWeight: "600", marginBottom: "0.75rem" }}>Products</h5>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.5rem", fontSize: "0.875rem" }}>
-              <li><Link to="/product" style={{ opacity: "0.8" }} data-testid="link-footer-built-in">Built-in</Link></li>
-              <li><Link to="/product" style={{ opacity: "0.8" }} data-testid="link-footer-stand-alone">Stand-alone</Link></li>
-              <li><Link to="/product" style={{ opacity: "0.8" }} data-testid="link-footer-lite">Lite</Link></li>
-              <li><Link to="/product" style={{ opacity: "0.8" }} data-testid="link-footer-pro">Pro</Link></li>
+              <li><Link to="/product" style={{ opacity: "0.8" }} data-testid="link-footer-built-in"></Link></li>
+              <li><Link to="/product" style={{ opacity: "0.8" }} data-testid="link-footer-stand-alone"></Link></li>
+              <li><Link to="/product" style={{ opacity: "0.8" }} data-testid="link-footer-lite"></Link></li>
+              <li><Link to="/product" style={{ opacity: "0.8" }} data-testid="link-footer-pro"></Link></li>
             </ul>
           </div>
           <div>
