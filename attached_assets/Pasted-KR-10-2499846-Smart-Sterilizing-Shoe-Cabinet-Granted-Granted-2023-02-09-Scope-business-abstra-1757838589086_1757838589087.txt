@@ -1,0 +1,43 @@
+KR 10-2499846 — Smart Sterilizing Shoe Cabinet (Granted)
+Granted: 2023-02-09.
+Scope (business abstract): Shoe-care cabinet architecture that performs in-cabinet sterilization and odor removal
+under controlled airflow and safety interlocks.
+Protectable elements: Cabinet structure for sterilization cycles; integrated control unit; in-enclosure treatment pathway;
+safety interlock mechanism.
+Commercial relevance: Hardware moat for cabinet-form shoe-care devices; foundation for manufacturing and
+OEM/ODM deals.
+KR 10-2023-0175107 — Smart Sterilizing Shoe Cabinet Including an Automatic Lift (Pending)
+Filed: 2023-12-06. Application pending.
+Scope (business abstract): Cabinet-type shoe-care system incorporating an automatic lift/positioning mechanism to
+facilitate treatment and user access.
+Protectable elements: Motorized/electromechanical lift; control logic coordinating lift movement with treatment
+sequences; ergonomic handling.
+Commercial relevance: Differentiates user experience (ergonomics, throughput); supports premium SKUs and
+serviceability.
+KR 10-2024-0147477 — Smart Shoe-Care System and Method (Pending)
+Filed: 2024-10-25. Application pending.
+Scope (business abstract): System-level workflow and control methods for automated shoe-care, including selection,
+sequencing, and execution of care modes.
+Protectable elements: End-to-end control logic; mode orchestration; device–sensor interactions; data logging for care
+history.
+Commercial relevance: Valuable method-layer coverage for software/firmware governance, third-party licensing, and
+platform enforcement.
+KR 10-2024-0165413 — AI Smart Shoe Cabinet Using Image Analysis (Pending)
+Filed: 2024-11-19. Application pending.
+Scope (business abstract): Image-analysis-driven identification of footwear characteristics to inform automatic care
+selection inside a cabinet system.
+Protectable elements: Vision pipeline (capture → analyze → decide); footwear classification features; decision
+mapping from image features to care parameters.
+Commercial relevance: Core to “auto-recognition → auto-care” differentiation; enables data services (usage analytics,
+condition insights).
+Also: Trademark Airet (KR 40-2023-0176480, filed 2023-09-26).
+One-line summary: The granted patent secures the in-cabinet sterilization architecture; three pending filings extend
+coverage to auto-lift ergonomics, system/method orchestration, and AI image analysis—protecting the full loop from
+recognition to optimized treatment.
+Rationale for Wording (Business-English):
+Claim-neutral verbs: Phrases like “relates to / concerns / covers” describe scope without overcommitting, reducing
+legal risk in IR decks.
+Market-facing structure: Pairing each asset with ‘Protectable elements’ and ‘Commercial relevance’ helps
+investors/partners tie IP to monetization.
+Title normalization: Using globally familiar patterns (e.g., “System and Method,” “Using Image Analysis”) improves
+readability for overseas readers.
