@@ -53,18 +53,18 @@ export default function News() {
           />
           
           {/* News Carousel */}
-          <div style={{ position: "relative", maxWidth: "80rem", margin: "0 auto", overflow: "hidden" }}>
+          <div style={{ position: "relative", maxWidth: "80rem", margin: "0 auto", padding: "0 5rem" }}>
             {/* Navigation Arrows */}
             <button
               onClick={prevSlide}
               style={{
                 position: "absolute",
-                left: "-2rem",
+                left: "0",
                 top: "50%",
                 transform: "translateY(-50%)",
                 zIndex: "10",
-                width: "3rem",
-                height: "3rem",
+                width: "3.5rem",
+                height: "3.5rem",
                 borderRadius: "50%",
                 border: "2px solid #e5e7eb",
                 background: "white",
@@ -72,7 +72,7 @@ export default function News() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "1.25rem",
+                fontSize: "1.5rem",
                 color: "#374151",
                 transition: "all 0.2s ease",
                 boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)"
@@ -81,10 +81,12 @@ export default function News() {
               onMouseEnter={(e) => {
                 (e.target as HTMLButtonElement).style.background = "#f9fafb";
                 (e.target as HTMLButtonElement).style.borderColor = "#9ca3af";
+                (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1.1)";
               }}
               onMouseLeave={(e) => {
                 (e.target as HTMLButtonElement).style.background = "white";
                 (e.target as HTMLButtonElement).style.borderColor = "#e5e7eb";
+                (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1)";
               }}
             >
               ‹
@@ -94,12 +96,12 @@ export default function News() {
               onClick={nextSlide}
               style={{
                 position: "absolute",
-                right: "-2rem",
+                right: "0",
                 top: "50%",
                 transform: "translateY(-50%)",
                 zIndex: "10",
-                width: "3rem",
-                height: "3rem",
+                width: "3.5rem",
+                height: "3.5rem",
                 borderRadius: "50%",
                 border: "2px solid #e5e7eb",
                 background: "white",
@@ -107,7 +109,7 @@ export default function News() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "1.25rem",
+                fontSize: "1.5rem",
                 color: "#374151",
                 transition: "all 0.2s ease",
                 boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)"
@@ -116,45 +118,65 @@ export default function News() {
               onMouseEnter={(e) => {
                 (e.target as HTMLButtonElement).style.background = "#f9fafb";
                 (e.target as HTMLButtonElement).style.borderColor = "#9ca3af";
+                (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1.1)";
               }}
               onMouseLeave={(e) => {
                 (e.target as HTMLButtonElement).style.background = "white";
                 (e.target as HTMLButtonElement).style.borderColor = "#e5e7eb";
+                (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1)";
               }}
             >
               ›
             </button>
 
-            {/* News Cards Container */}
+            {/* News Cards Container with clipping */}
             <div 
               style={{
-                display: "flex",
-                gap: "1.5rem",
-                padding: "0 4rem",
-                alignItems: "stretch"
+                position: "relative",
+                overflow: "hidden",
+                margin: "0 4rem"
               }}
               data-testid="news-carousel"
             >
-              {getVisibleNews().map((item, index) => {
-                const isCenter = index === 1 || index === 2;
-                const isEdge = index === 0 || index === 3;
-                
-                return (
-                  <div
-                    key={`${currentIndex}-${index}`}
-                    style={{
-                      flex: isCenter ? "0 0 40%" : "0 0 20%",
-                      opacity: isEdge ? "0.6" : "1",
-                      transform: isEdge ? "scale(0.9)" : "scale(1)",
-                      transition: "all 0.3s ease",
-                      overflow: isEdge ? "hidden" : "visible"
-                    }}
-                    data-testid={`news-carousel-item-${index}`}
-                  >
-                    <NewsCard news={item} theme="white" />
-                  </div>
-                );
-              })}
+              <div 
+                style={{
+                  display: "flex",
+                  gap: "1.5rem",
+                  width: "calc(100% + 40%)",
+                  transform: "translateX(-10%)",
+                  alignItems: "stretch"
+                }}
+              >
+                {getVisibleNews().map((item, index) => {
+                  const isCenter = index === 1 || index === 2;
+                  const isEdge = index === 0 || index === 3;
+                  
+                  return (
+                    <div
+                      key={`${currentIndex}-${index}`}
+                      style={{
+                        flex: "0 0 25%",
+                        opacity: isEdge ? "0.7" : "1",
+                        transform: isEdge ? "scale(0.95)" : "scale(1)",
+                        transition: "all 0.3s ease",
+                        cursor: "pointer",
+                        position: "relative"
+                      }}
+                      data-testid={`news-carousel-item-${index}`}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLDivElement).style.transform = isEdge ? "scale(1)" : "scale(1.02)";
+                        (e.currentTarget as HTMLDivElement).style.zIndex = "5";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLDivElement).style.transform = isEdge ? "scale(0.95)" : "scale(1)";
+                        (e.currentTarget as HTMLDivElement).style.zIndex = "1";
+                      }}
+                    >
+                      <NewsCard news={item} theme="white" />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
