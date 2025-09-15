@@ -6,27 +6,27 @@ export default {
   },
   members: [
     {
-      name: 'Subin Jang',
-      role: '.',
+      name: 'Saint KIM',
+      role: 'Project Lead',
+      note: '.'
+    },
+    {
+      name: 'Elena KIM',
+      role: 'Strategy & Planning',
+      note: '.'
+    },
+    {
+      name: 'Subin JANG',
+      role: 'Operations & Governance',
       note: '.'
     },
     {
       name: 'Seunghwan Bae',
-      role: 'Developer',
+      role: 'Backend Engineer',
       note: '.'
     },
     {
-      name: 'Member C',
-      role: '.',
-      note: '.'
-    },
-    {
-      name: 'Member D',
-      role: '.',
-      note: '.'
-    },
-    {
-      name: 'Member E',
+      name: 'Anidipta Pal',
       role: '.',
       note: '.'
     },
