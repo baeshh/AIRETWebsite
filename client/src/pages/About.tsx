@@ -1,9 +1,41 @@
+import { useState } from "react";
 import SectionHeader from "../components/SectionHeader";
 import TeamGrid from "../components/TeamGrid";
 import team from "../content/team";
 import visionImage from "@assets/main_1757842353489.png";
 
+type Year = 2023 | 2024 | 2025;
+
+interface Milestone {
+  date: string;
+  description: string;
+}
+
 export default function About() {
+  const [activeYear, setActiveYear] = useState<Year>(2025);
+
+  const milestonesByYear: Record<Year, Milestone[]> = {
+    2023: [
+      { date: "Feb 2023", description: "Patent granted (KR No. 10-2499846)." },
+      { date: "Dec 2023", description: "Patent application filed: Smart sterilizing shoe cabinet (KR 10-2023-0175107)." }
+    ],
+    2024: [
+      { date: "Jan 2024", description: "MOU with MDI to install shoe cabinets in model homes." },
+      { date: "Feb 2024", description: "Patent application filed: AI smart shoe cabinet using image analysis (KR 10-2024-0165413)." },
+      { date: "Sep 2024", description: "LOI signed with SM Gyeongnam (Gyeongnam Honorsville Gwangju Station Taejeon)." },
+      { date: "Sep 2024", description: "MOU signed with Buildhada, a SaaS construction platform." },
+      { date: "Sep 2024", description: "MOU signed with MoDef (custom furniture installation & manufacturing)." },
+      { date: "Oct 2024", description: "Patent application filed: Smart shoe automatic re-care system and method (KR 10-2024-0147477)." },
+      { date: "Oct 2024", description: "MOU signed with Andrew L. Pettit Architects (New York)." },
+      { date: "Dec 2024", description: "Product validation testing underway with HOBAN Construction (product adoption under discussion)." }
+    ],
+    2025: [
+      { date: "Jan 2025", description: "MOU signed with Jeongrok Co., Ltd. for plasma technology development." },
+      { date: "Mar 2025", description: "LOI executed with HDC Hyundai Development Company." },
+      { date: "Apr 2025", description: "LOI executed with Yangwoo Construction for the Yangwoo Naean-Ae project." },
+      { date: "Apr 2025", description: "Purchase commitment contract executed for Jeju City Residence, Unit 140." }
+    ]
+  };
 
   return (
     <main>
@@ -122,7 +154,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Company Intro Section (Black) */}
+      {/* Interactive Timeline Section (Black) */}
       <section className="section section--black">
         <div className="container">
           <SectionHeader
@@ -131,66 +163,111 @@ export default function About() {
             theme="black"
           />
           
-          <div style={{ maxWidth: "48rem", margin: "0 auto" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-1">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Feb 2023</h4>
-                <p style={{ opacity: "0.8" }}>Patent granted (KR No. 10-2499846).</p>
+          <div style={{ maxWidth: "64rem", margin: "0 auto" }}>
+            {/* Two-column layout */}
+            <div 
+              style={{ 
+                display: "grid", 
+                gridTemplateColumns: "200px 1fr", 
+                gap: "3rem",
+                alignItems: "flex-start"
+              }}
+              className="journey-grid"
+            >
+              {/* Left Column - Year Selector */}
+              <div 
+                role="tablist"
+                style={{ 
+                  display: "flex", 
+                  flexDirection: "column", 
+                  gap: "1rem",
+                  position: "sticky",
+                  top: "2rem"
+                }}
+                data-testid="year-selector"
+              >
+                {([2025, 2024, 2023] as Year[]).map((year) => (
+                  <button
+                    key={year}
+                    role="tab"
+                    aria-selected={activeYear === year}
+                    aria-controls="milestones-panel"
+                    onClick={() => setActiveYear(year)}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.75rem",
+                      background: "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                      fontSize: activeYear === year ? "1.5rem" : "1rem",
+                      fontWeight: activeYear === year ? "700" : "600",
+                      color: "var(--b-fg)",
+                      transition: "all 0.3s ease",
+                      padding: "0.5rem 0",
+                      textAlign: "left"
+                    }}
+                    data-testid={`button-year-${year}`}
+                  >
+                    <span
+                      style={{
+                        width: "14px",
+                        height: "14px",
+                        borderRadius: "50%",
+                        border: "2px solid #4f46e5",
+                        background: activeYear === year ? "#4f46e5" : "transparent",
+                        transition: "all 0.3s ease"
+                      }}
+                      data-testid={`icon-year-${year}`}
+                    />
+                    {year}
+                  </button>
+                ))}
               </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-2">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Dec 2023</h4>
-                <p style={{ opacity: "0.8" }}>Patent application filed: Smart sterilizing shoe cabinet (KR 10-2023-0175107).</p>
-              </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-3">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Jan 2024</h4>
-                <p style={{ opacity: "0.8" }}>MOU with MDI to install shoe cabinets in model homes.</p>
-              </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-4">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Feb 2024</h4>
-                <p style={{ opacity: "0.8" }}>Patent application filed: AI smart shoe cabinet using image analysis (KR 10-2024-0165413).</p>
-              </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-5">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Sep 2024</h4>
-                <p style={{ opacity: "0.8" }}>LOI signed with SM Gyeongnam (Gyeongnam Honorsville Gwangju Station Taejeon).</p>
-              </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-6">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Sep 2024</h4>
-                <p style={{ opacity: "0.8" }}>MOU signed with Buildhada, a SaaS construction platform.</p>
-              </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-7">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Sep 2024</h4>
-                <p style={{ opacity: "0.8" }}>MOU signed with MoDef (custom furniture installation & manufacturing).</p>
-              </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-8">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Oct 2024</h4>
-                <p style={{ opacity: "0.8" }}>Patent application filed: Smart shoe automatic re-care system and method (KR 10-2024-0147477).</p>
-              </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-9">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Oct 2024</h4>
-                <p style={{ opacity: "0.8" }}>MOU signed with Andrew L. Pettit Architects (New York).</p>
-              </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-10">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Dec 2024</h4>
-                <p style={{ opacity: "0.8" }}>Product validation testing underway with HOBAN Construction (product adoption under discussion).</p>
-              </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-11">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Jan 2025</h4>
-                <p style={{ opacity: "0.8" }}>MOU signed with Jeongrok Co., Ltd. for plasma technology development.</p>
-              </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-12">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Mar 2025</h4>
-                <p style={{ opacity: "0.8" }}>LOI executed with HDC Hyundai Development Company.</p>
-              </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-13">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Apr 2025</h4>
-                <p style={{ opacity: "0.8" }}>LOI executed with Yangwoo Construction for the Yangwoo Naean-Ae project.</p>
-              </div>
-              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-14">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Apr 2025</h4>
-                <p style={{ opacity: "0.8" }}>Purchase commitment contract executed for Jeju City Residence, Unit 140.</p>
+
+              {/* Right Column - Milestones */}
+              <div 
+                id="milestones-panel"
+                role="tabpanel"
+                style={{ 
+                  display: "flex", 
+                  flexDirection: "column", 
+                  gap: "1.5rem" 
+                }}
+                data-testid="milestones-panel"
+              >
+                {milestonesByYear[activeYear].map((milestone, index) => (
+                  <div
+                    key={`${activeYear}-${index}`}
+                    style={{ 
+                      padding: "1.5rem", 
+                      background: "var(--b-surface)", 
+                      borderRadius: "var(--radius)", 
+                      border: "1px solid var(--b-line)" 
+                    }}
+                    data-testid={`milestone-${activeYear}-${index}`}
+                  >
+                    <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>
+                      {milestone.date}
+                    </h4>
+                    <p style={{ opacity: "0.8" }}>
+                      {milestone.description}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
+
+          {/* Mobile-responsive CSS */}
+          <style>{`
+            @media (max-width: 768px) {
+              .journey-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+              }
+            }
+          `}</style>
         </div>
       </section>
     </main>
