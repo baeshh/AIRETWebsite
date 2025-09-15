@@ -1,11 +1,4 @@
-import { Link } from "react-router-dom";
-
-interface NewsItem {
-  title: string;
-  date: string;
-  summary: string;
-  link: string;
-}
+import { type NewsItem } from "../content/news";
 
 interface NewsCardProps {
   news: NewsItem;
@@ -27,18 +20,31 @@ export default function NewsCard({ news, theme = "white" }: NewsCardProps) {
         }}
         data-testid={`news-thumbnail-${news.title.replace(/\s+/g, '-').toLowerCase()}`}
       >
-        <div
-          style={{
-            position: "absolute",
-            inset: "0",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: theme === "white" ? "#9ca3af" : "#6b7280",
-          }}
-        >
-          <span style={{ fontSize: "1.875rem" }}>📰</span>
-        </div>
+        {news.image ? (
+          <img 
+            src={news.image} 
+            alt={news.title}
+            style={{ 
+              width: "100%", 
+              height: "100%", 
+              objectFit: "cover",
+              display: "block" 
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              position: "absolute",
+              inset: "0",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: theme === "white" ? "#9ca3af" : "#6b7280",
+            }}
+          >
+            <span style={{ fontSize: "1.875rem" }}>📰</span>
+          </div>
+        )}
       </div>
       <div style={{ padding: "1.5rem" }}>
         <time
@@ -71,16 +77,32 @@ export default function NewsCard({ news, theme = "white" }: NewsCardProps) {
         >
           {news.summary}
         </p>
-        <Link
-          to={news.link === "#" ? "/news" : news.link}
-          style={{
-            color: theme === "white" ? "var(--w-fg)" : "var(--b-fg)",
-            fontWeight: "500",
-          }}
-          data-testid={`link-news-read-more-${news.title.replace(/\s+/g, '-').toLowerCase()}`}
-        >
-          Read more →
-        </Link>
+        {news.link === "#" ? (
+          <span
+            style={{
+              color: theme === "white" ? "var(--w-fg)" : "var(--b-fg)",
+              fontWeight: "500",
+              opacity: "0.5",
+            }}
+            data-testid={`text-news-read-more-${news.title.replace(/\s+/g, '-').toLowerCase()}`}
+          >
+            Read more →
+          </span>
+        ) : (
+          <a
+            href={news.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: theme === "white" ? "var(--w-fg)" : "var(--b-fg)",
+              fontWeight: "500",
+              textDecoration: "none",
+            }}
+            data-testid={`link-news-read-more-${news.title.replace(/\s+/g, '-').toLowerCase()}`}
+          >
+            Read more →
+          </a>
+        )}
       </div>
     </article>
   );
