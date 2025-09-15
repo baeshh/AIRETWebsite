@@ -132,18 +132,62 @@ export default function About() {
           />
           
           <div style={{ maxWidth: "48rem", margin: "0 auto" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
               <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-1">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>2024 - Foundation</h4>
-                <p style={{ opacity: "0.8" }}>일대기</p>
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Feb 2023</h4>
+                <p style={{ opacity: "0.8" }}>Patent granted (KR No. 10-2499846).</p>
               </div>
               <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-2">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>2025 - First Prototype</h4>
-                <p style={{ opacity: "0.8" }}>일대기</p>
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Dec 2023</h4>
+                <p style={{ opacity: "0.8" }}>Patent application filed: Smart sterilizing shoe cabinet (KR 10-2023-0175107).</p>
               </div>
               <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-3">
-                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>2025 - Patent Applications</h4>
-                <p style={{ opacity: "0.8" }}>일대기</p>
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Jan 2024</h4>
+                <p style={{ opacity: "0.8" }}>MOU with MDI to install shoe cabinets in model homes.</p>
+              </div>
+              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-4">
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Feb 2024</h4>
+                <p style={{ opacity: "0.8" }}>Patent application filed: AI smart shoe cabinet using image analysis (KR 10-2024-0165413).</p>
+              </div>
+              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-5">
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Sep 2024</h4>
+                <p style={{ opacity: "0.8" }}>LOI signed with SM Gyeongnam (Gyeongnam Honorsville Gwangju Station Taejeon).</p>
+              </div>
+              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-6">
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Sep 2024</h4>
+                <p style={{ opacity: "0.8" }}>MOU signed with Buildhada, a SaaS construction platform.</p>
+              </div>
+              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-7">
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Sep 2024</h4>
+                <p style={{ opacity: "0.8" }}>MOU signed with MoDef (custom furniture installation & manufacturing).</p>
+              </div>
+              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-8">
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Oct 2024</h4>
+                <p style={{ opacity: "0.8" }}>Patent application filed: Smart shoe automatic re-care system and method (KR 10-2024-0147477).</p>
+              </div>
+              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-9">
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Oct 2024</h4>
+                <p style={{ opacity: "0.8" }}>MOU signed with Andrew L. Pettit Architects (New York).</p>
+              </div>
+              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-10">
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Dec 2024</h4>
+                <p style={{ opacity: "0.8" }}>Product validation testing underway with HOBAN Construction (product adoption under discussion).</p>
+              </div>
+              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-11">
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Jan 2025</h4>
+                <p style={{ opacity: "0.8" }}>MOU signed with Jeongrok Co., Ltd. for plasma technology development.</p>
+              </div>
+              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-12">
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Mar 2025</h4>
+                <p style={{ opacity: "0.8" }}>LOI executed with HDC Hyundai Development Company.</p>
+              </div>
+              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-13">
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Apr 2025</h4>
+                <p style={{ opacity: "0.8" }}>LOI executed with Yangwoo Construction for the Yangwoo Naean-Ae project.</p>
+              </div>
+              <div style={{ padding: "1.5rem", background: "var(--b-surface)", borderRadius: "var(--radius)", border: "1px solid var(--b-line)" }} data-testid="milestone-14">
+                <h4 style={{ fontSize: "1.125rem", fontWeight: "600", marginBottom: "0.5rem" }}>Apr 2025</h4>
+                <p style={{ opacity: "0.8" }}>Purchase commitment contract executed for Jeju City Residence, Unit 140.</p>
               </div>
             </div>
           </div>
