@@ -8,19 +8,30 @@ interface NewsCardProps {
 export default function NewsCard({ news, theme = "white" }: NewsCardProps) {
   const cardClass = theme === "white" ? "card--white" : "card--black";
 
+  const handleCardClick = () => {
+    if (news.link && news.link !== "#") {
+      window.open(news.link, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <article 
       className={`card ${cardClass}`} 
       data-testid={`news-card-${news.title.replace(/\s+/g, '-').toLowerCase()}`}
       style={{
         transition: "transform 0.3s ease",
-        cursor: "pointer"
+        cursor: news.link && news.link !== "#" ? "pointer" : "default"
       }}
+      onClick={handleCardClick}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.transform = "scale(1.02)";
+        if (news.link && news.link !== "#") {
+          (e.currentTarget as HTMLElement).style.transform = "scale(1.02)";
+        }
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.transform = "scale(1)";
+        if (news.link && news.link !== "#") {
+          (e.currentTarget as HTMLElement).style.transform = "scale(1)";
+        }
       }}
     >
       {/* News thumbnail placeholder */}
