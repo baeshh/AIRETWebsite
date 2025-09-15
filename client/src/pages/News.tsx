@@ -22,7 +22,7 @@ export default function News() {
     },
     {
       date: "2024-11-12",
-      title: "Airret Wins Award at 2024 Startup Incubation Competition",
+      title: "Airet Wins Award at 2024 Startup Incubation Competition",
       description: "Recognized for IoT Smart Shoe-Care Cabinet with UV Odor Filter, Dust Collection, and Heat Pump"
     }
   ];
