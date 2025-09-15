@@ -8,37 +8,37 @@ export default {
     {
       name: 'Saint KIM',
       role: 'Project Lead',
-      note: '.'
+      note: ''
     },
     {
       name: 'Elena KIM',
       role: 'Strategy & Planning',
-      note: '.'
+      note: ''
     },
     {
       name: 'Subin JANG',
       role: 'Operations & Governance',
-      note: '.'
+      note: ''
     },
     {
       name: 'Seunghwan Bae',
       role: 'Backend Engineer',
-      note: '.'
+      note: ''
     },
     {
       name: 'Anidipta Pal',
       role: 'ML Engineer',
-      note: '.'
+      note: ''
     },
     {
       name: 'PULUSU KARTHIK',
       role: 'ML Engineer',
-      note: '.'
+      note: ''
     },
     {
       name: 'Aarushi Mishra',
       role: 'Data Scientist',
-      note: '.'
+      note: ''
     }
   ]
 };
