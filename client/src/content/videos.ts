@@ -8,10 +8,10 @@ export interface VideoItem {
 
 const videos: VideoItem[] = [
   {
-    id: "6hHIlBNvgQKm",
+    id: "4DPhPqi2K3o",
     title: "Smart home",
     url: "https://www.youtube.com/watch?v=4DPhPqi2K3o",
-    embedUrl: "https://youtu.be/4DPhPqi2K3o?si=Q6Y_6hHIlBNvgQKm",
+    embedUrl: "https://www.youtube.com/embed/4DPhPqi2K3o",
     description: "Next-generation lifestyle technology enhancing convenience and hygiene at home"
   },
   {
