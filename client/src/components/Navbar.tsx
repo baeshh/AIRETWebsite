@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logoImage from "@assets/image_1757936749741.png";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,8 +32,15 @@ export default function Navbar() {
     <nav className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`}>
       <div className="container">
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "3rem" }}>
-          <Link to="/" style={{ fontSize: "1.25rem", fontWeight: "bold" }} onClick={handleNavClick} data-testid="link-home-logo">
-            AIRET
+          <Link to="/" onClick={handleNavClick} data-testid="link-home-logo">
+            <img 
+              src={logoImage} 
+              alt="AIRET" 
+              style={{ 
+                height: "2rem",
+                width: "auto"
+              }} 
+            />
           </Link>
           <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
             <div className="desktop-menu" style={{ display: "flex", gap: "1.5rem" }}>
