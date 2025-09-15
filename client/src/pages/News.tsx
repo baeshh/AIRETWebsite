@@ -37,7 +37,8 @@ export default function News() {
 
   const getVisibleNews = () => {
     const visible = [];
-    for (let i = 0; i < 4; i++) {
+    const itemsToShow = Math.min(4, news.length);
+    for (let i = 0; i < itemsToShow; i++) {
       const index = (currentIndex + i) % news.length;
       visible.push(news[index]);
     }
@@ -74,80 +75,84 @@ export default function News() {
           
           {/* News Carousel */}
           <div style={{ position: "relative", maxWidth: "80rem", margin: "0 auto", padding: "0 5rem" }}>
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevSlide}
-              style={{
-                position: "absolute",
-                left: "0",
-                top: "50%",
-                transform: "translateY(-50%)",
-                zIndex: "10",
-                width: "3.5rem",
-                height: "3.5rem",
-                borderRadius: "50%",
-                border: "2px solid #e5e7eb",
-                background: "white",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "1.5rem",
-                color: "#374151",
-                transition: "all 0.2s ease",
-                boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)"
-              }}
-              data-testid="button-news-prev"
-              onMouseEnter={(e) => {
-                (e.target as HTMLButtonElement).style.background = "#f9fafb";
-                (e.target as HTMLButtonElement).style.borderColor = "#9ca3af";
-                (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1.1)";
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLButtonElement).style.background = "white";
-                (e.target as HTMLButtonElement).style.borderColor = "#e5e7eb";
-                (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1)";
-              }}
-            >
-              ‹
-            </button>
-            
-            <button
-              onClick={nextSlide}
-              style={{
-                position: "absolute",
-                right: "0",
-                top: "50%",
-                transform: "translateY(-50%)",
-                zIndex: "10",
-                width: "3.5rem",
-                height: "3.5rem",
-                borderRadius: "50%",
-                border: "2px solid #e5e7eb",
-                background: "white",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "1.5rem",
-                color: "#374151",
-                transition: "all 0.2s ease",
-                boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)"
-              }}
-              data-testid="button-news-next"
-              onMouseEnter={(e) => {
-                (e.target as HTMLButtonElement).style.background = "#f9fafb";
-                (e.target as HTMLButtonElement).style.borderColor = "#9ca3af";
-                (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1.1)";
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLButtonElement).style.background = "white";
-                (e.target as HTMLButtonElement).style.borderColor = "#e5e7eb";
-                (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1)";
-              }}
-            >
-              ›
-            </button>
+            {/* Navigation Arrows - only show if there's more than one news item */}
+            {news.length > 1 && (
+              <>
+                <button
+                  onClick={prevSlide}
+                  style={{
+                    position: "absolute",
+                    left: "0",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    zIndex: "10",
+                    width: "3.5rem",
+                    height: "3.5rem",
+                    borderRadius: "50%",
+                    border: "2px solid #e5e7eb",
+                    background: "white",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "1.5rem",
+                    color: "#374151",
+                    transition: "all 0.2s ease",
+                    boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)"
+                  }}
+                  data-testid="button-news-prev"
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLButtonElement).style.background = "#f9fafb";
+                    (e.target as HTMLButtonElement).style.borderColor = "#9ca3af";
+                    (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1.1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLButtonElement).style.background = "white";
+                    (e.target as HTMLButtonElement).style.borderColor = "#e5e7eb";
+                    (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1)";
+                  }}
+                >
+                  ‹
+                </button>
+                
+                <button
+                  onClick={nextSlide}
+                  style={{
+                    position: "absolute",
+                    right: "0",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    zIndex: "10",
+                    width: "3.5rem",
+                    height: "3.5rem",
+                    borderRadius: "50%",
+                    border: "2px solid #e5e7eb",
+                    background: "white",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "1.5rem",
+                    color: "#374151",
+                    transition: "all 0.2s ease",
+                    boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)"
+                  }}
+                  data-testid="button-news-next"
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLButtonElement).style.background = "#f9fafb";
+                    (e.target as HTMLButtonElement).style.borderColor = "#9ca3af";
+                    (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1.1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLButtonElement).style.background = "white";
+                    (e.target as HTMLButtonElement).style.borderColor = "#e5e7eb";
+                    (e.target as HTMLButtonElement).style.transform = "translateY(-50%) scale(1)";
+                  }}
+                >
+                  ›
+                </button>
+              </>
+            )}
 
             {/* News Cards Container with clipping */}
             <div 
