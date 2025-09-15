@@ -12,13 +12,13 @@ export default function News() {
   const updates = [
     {
       date: "2025-09-14",
-      title: "기사",
-      description: "기사"
+      title: "Digital Health, Smart Home YouTube Upload",
+      description: "Content introducing the convergence trend of smart healthcare and home tech"
     },
     {
       date: "2025-09-14",
-      title: "기사",
-      description: "기사"
+      title: "Money Today Gyeonggi Headquarters Interview",
+      description: "Sharing the startup’s background, vision, and market expansion strategy"
     },
     {
       date: "2025-09-14",
