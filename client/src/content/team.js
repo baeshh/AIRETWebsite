@@ -27,23 +27,18 @@ export default {
     },
     {
       name: 'Anidipta Pal',
-      role: '.',
+      role: 'ML Engineer',
       note: '.'
     },
     {
-      name: 'Member F',
-      role: '.',
+      name: 'PULUSU KARTHIK',
+      role: 'ML Engineer',
       note: '.'
     },
     {
-      name: 'Member G',
-      role: '.',
+      name: 'Aarushi Mishra',
+      role: 'Data Scientist',
       note: '.'
-    },
-    {
-      name: 'Member H',
-      role: '.',
-      note: '.'
-    },
+    }
   ]
 };
