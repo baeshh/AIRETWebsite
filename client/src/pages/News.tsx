@@ -154,55 +154,69 @@ export default function News() {
               </>
             )}
 
-            {/* News Cards Container with clipping */}
-            <div 
-              style={{
-                position: "relative",
-                overflow: "hidden",
-                margin: "0 4rem"
-              }}
-              data-testid="news-carousel"
-            >
+            {/* News Cards Container */}
+            {news.length === 1 ? (
+              // Single news item - display centered
               <div 
                 style={{
                   display: "flex",
-                  gap: "1.5rem",
-                  width: "calc(100% + 40%)",
-                  transform: "translateX(-10%)",
-                  alignItems: "stretch"
+                  justifyContent: "center",
+                  margin: "0 auto",
+                  maxWidth: "600px"
                 }}
+                data-testid="news-single"
               >
-                {getVisibleNews().map((item, index) => {
-                  const isCenter = index === 1 || index === 2;
-                  const isEdge = index === 0 || index === 3;
-                  
-                  return (
-                    <div
-                      key={`${currentIndex}-${index}`}
-                      style={{
-                        flex: "0 0 25%",
-                        opacity: isEdge ? "0.7" : "1",
-                        transform: isEdge ? "scale(0.95)" : "scale(1)",
-                        transition: "all 0.3s ease",
-                        cursor: "pointer",
-                        position: "relative"
-                      }}
-                      data-testid={`news-carousel-item-${index}`}
-                      onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLDivElement).style.transform = isEdge ? "scale(1)" : "scale(1.02)";
-                        (e.currentTarget as HTMLDivElement).style.zIndex = "5";
-                      }}
-                      onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLDivElement).style.transform = isEdge ? "scale(0.95)" : "scale(1)";
-                        (e.currentTarget as HTMLDivElement).style.zIndex = "1";
-                      }}
-                    >
-                      <NewsCard news={item} theme="white" />
-                    </div>
-                  );
-                })}
+                <div
+                  style={{
+                    width: "100%"
+                  }}
+                  data-testid="news-single-item"
+                >
+                  <NewsCard news={news[0]} theme="white" />
+                </div>
               </div>
-            </div>
+            ) : (
+              // Multiple news items - display as carousel
+              <div 
+                style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  margin: "0 4rem"
+                }}
+                data-testid="news-carousel"
+              >
+                <div 
+                  style={{
+                    display: "flex",
+                    gap: "1.5rem",
+                    width: "calc(100% + 40%)",
+                    transform: "translateX(-10%)",
+                    alignItems: "stretch"
+                  }}
+                >
+                  {getVisibleNews().map((item, index) => {
+                    const isCenter = index === 1 || index === 2;
+                    const isEdge = index === 0 || index === 3;
+                    
+                    return (
+                      <div
+                        key={`${currentIndex}-${index}`}
+                        style={{
+                          flex: "0 0 25%",
+                          opacity: isEdge ? "0.7" : "1",
+                          transform: isEdge ? "scale(0.95)" : "scale(1)",
+                          transition: "all 0.3s ease",
+                          position: "relative"
+                        }}
+                        data-testid={`news-carousel-item-${index}`}
+                      >
+                        <NewsCard news={item} theme="white" />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>

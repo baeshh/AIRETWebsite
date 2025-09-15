@@ -9,7 +9,20 @@ export default function NewsCard({ news, theme = "white" }: NewsCardProps) {
   const cardClass = theme === "white" ? "card--white" : "card--black";
 
   return (
-    <article className={`card ${cardClass}`} data-testid={`news-card-${news.title.replace(/\s+/g, '-').toLowerCase()}`}>
+    <article 
+      className={`card ${cardClass}`} 
+      data-testid={`news-card-${news.title.replace(/\s+/g, '-').toLowerCase()}`}
+      style={{
+        transition: "transform 0.3s ease",
+        cursor: "pointer"
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLElement).style.transform = "scale(1.02)";
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLElement).style.transform = "scale(1)";
+      }}
+    >
       {/* News thumbnail placeholder */}
       <div
         style={{
