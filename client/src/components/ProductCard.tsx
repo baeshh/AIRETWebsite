@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 
 interface Product {
   key: string;
@@ -15,9 +14,6 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, theme = "black" }: ProductCardProps) {
   const cardClass = theme === "white" ? "card--white" : "card--black";
-  const buttonStyle = theme === "black" 
-    ? { background: "var(--w-bg)", color: "var(--w-fg)" }
-    : { background: "var(--b-bg)", color: "var(--b-fg)" };
 
   return (
     <div className={`card ${cardClass}`} data-testid={`product-card-${product.key}`}>
@@ -100,20 +96,6 @@ export default function ProductCard({ product, theme = "black" }: ProductCardPro
             </li>
           ))}
         </ul>
-        <Link
-          to="/product"
-          style={{
-            display: "inline-block",
-            padding: "0.5rem 1.5rem",
-            borderRadius: "var(--radius)",
-            fontWeight: "500",
-            transition: "all 0.2s ease",
-            ...buttonStyle,
-          }}
-          data-testid={`button-learn-more-${product.key}`}
-        >
-          Learn More
-        </Link>
       </div>
     </div>
   );
