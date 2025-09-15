@@ -11,19 +11,19 @@ export default function News() {
   
   const updates = [
     {
-      date: "2025-09-14",
+      date: "2025-09-13",
       title: "Digital Health, Smart Home YouTube Upload",
       description: "Content introducing the convergence trend of smart healthcare and home tech"
     },
     {
-      date: "2025-09-14",
+      date: "2024-12-10",
       title: "Money Today Gyeonggi Headquarters Interview",
       description: "Sharing the startup’s background, vision, and market expansion strategy"
     },
     {
-      date: "2025-09-14",
-      title: "기사",
-      description: "기사"
+      date: "2024-11-12",
+      title: "Airret Wins Award at 2024 Startup Incubation Competition",
+      description: "Recognized for IoT Smart Shoe-Care Cabinet with UV Odor Filter, Dust Collection, and Heat Pump"
     }
   ];
 
