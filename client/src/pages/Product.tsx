@@ -173,32 +173,6 @@ export default function Product() {
                     </li>
                   ))}
                 </ul>
-                
-                {/* Learn More Button */}
-                <button
-                  style={{
-                    padding: "0.75rem 1.5rem",
-                    background: "transparent",
-                    border: "2px solid var(--b-fg)",
-                    borderRadius: "0.5rem",
-                    color: "var(--b-fg)",
-                    fontSize: "0.875rem",
-                    fontWeight: "600",
-                    cursor: "pointer",
-                    transition: "all 0.2s ease"
-                  }}
-                  data-testid={`button-learn-more-${feature.id}`}
-                  onMouseEnter={(e) => {
-                    (e.target as HTMLButtonElement).style.background = "var(--b-fg)";
-                    (e.target as HTMLButtonElement).style.color = "var(--b-bg)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.target as HTMLButtonElement).style.background = "transparent";
-                    (e.target as HTMLButtonElement).style.color = "var(--b-fg)";
-                  }}
-                >
-                  Learn More
-                </button>
               </div>
             ))}
           </div>
