@@ -1,7 +1,6 @@
 import { useState } from "react";
 import SectionHeader from "../components/SectionHeader";
 import TeamGrid from "../components/TeamGrid";
-import WorldMapHero from "../components/WorldMapHero";
 import team from "../content/team";
 import visionImage from "@assets/main_1757842353489.png";
 
@@ -84,19 +83,6 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Global Reach Section (White) */}
-      <section className="section section--white">
-        <div className="container">
-          <SectionHeader
-            title="Global Reach"
-            subtitle="Connecting smart homes worldwide"
-            theme="white"
-          />
-          
-          <WorldMapHero theme="white" />
         </div>
       </section>
 
