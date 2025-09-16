@@ -3,7 +3,7 @@ import SectionHeader from "../components/SectionHeader";
 import TeamGrid from "../components/TeamGrid";
 import team from "../content/team";
 import visionImage from "@assets/main_1757842353489.png";
-import worldMapImage from "@assets/image_1758041613383.png";
+import worldMapImage from "@assets/image_1758041806211.png";
 
 type Year = 2023 | 2024 | 2025;
 
@@ -147,31 +147,31 @@ export default function About() {
               style={{ position: "absolute", top: 0, left: 0 }}
             >
               {/* City Dots */}
-              <circle cx="650" cy="160" r="8" fill="#10b981" data-testid="seoul-dot">
+              <circle cx="700" cy="180" r="8" fill="#10b981" data-testid="seoul-dot">
                 <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
               </circle>
-              <circle cx="250" cy="120" r="6" fill="#3b82f6" data-testid="newyork-dot" />
-              <circle cx="200" cy="140" r="6" fill="#f59e0b" data-testid="lasvegas-dot" />
-              <circle cx="180" cy="160" r="6" fill="#ef4444" data-testid="la-dot" />
+              <circle cx="200" cy="160" r="6" fill="#3b82f6" data-testid="newyork-dot" />
+              <circle cx="150" cy="180" r="6" fill="#f59e0b" data-testid="lasvegas-dot" />
+              <circle cx="130" cy="200" r="6" fill="#ef4444" data-testid="la-dot" />
 
               {/* Animated Connection Lines */}
               <g stroke="#4f46e5" strokeWidth="2" fill="none" strokeDasharray="5,5">
-                <line x1="650" y1="160" x2="250" y2="120" opacity="0.8">
+                <line x1="700" y1="180" x2="200" y2="160" opacity="0.8">
                   <animate attributeName="stroke-dashoffset" values="0;-20" dur="2s" repeatCount="indefinite" />
                 </line>
-                <line x1="650" y1="160" x2="200" y2="140" opacity="0.8">
+                <line x1="700" y1="180" x2="150" y2="180" opacity="0.8">
                   <animate attributeName="stroke-dashoffset" values="0;-20" dur="2.5s" repeatCount="indefinite" />
                 </line>
-                <line x1="650" y1="160" x2="180" y2="160" opacity="0.8">
+                <line x1="700" y1="180" x2="130" y2="200" opacity="0.8">
                   <animate attributeName="stroke-dashoffset" values="0;-20" dur="3s" repeatCount="indefinite" />
                 </line>
               </g>
 
               {/* City Labels */}
-              <text x="660" y="150" fill="white" fontSize="12" fontWeight="600" textAnchor="start">Seoul</text>
-              <text x="260" y="110" fill="white" fontSize="12" fontWeight="600" textAnchor="start">New York</text>
-              <text x="210" y="130" fill="white" fontSize="12" fontWeight="600" textAnchor="start">Las Vegas</text>
-              <text x="190" y="150" fill="white" fontSize="12" fontWeight="600" textAnchor="start">Los Angeles</text>
+              <text x="710" y="170" fill="white" fontSize="12" fontWeight="600" textAnchor="start">Seoul</text>
+              <text x="210" y="150" fill="white" fontSize="12" fontWeight="600" textAnchor="start">New York</text>
+              <text x="160" y="170" fill="white" fontSize="12" fontWeight="600" textAnchor="start">Las Vegas</text>
+              <text x="140" y="190" fill="white" fontSize="12" fontWeight="600" textAnchor="start">Los Angeles</text>
             </svg>
           </div>
 
