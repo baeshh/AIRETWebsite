@@ -2,7 +2,7 @@ import { useState } from "react";
 import SectionHeader from "../components/SectionHeader";
 import TeamGrid from "../components/TeamGrid";
 import TechOverviewSection from "../components/TechOverviewSection";
-import team from "../content/team";
+import team from "../content/team.ts";
 import visionImage from "@assets/main_1757842353489.png";
 
 type Year = 2023 | 2024 | 2025;
