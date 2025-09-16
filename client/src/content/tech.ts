@@ -61,11 +61,15 @@ export const connections: Connection[] = [
 
 export const techCards = [
   {
-    title: "AI Pipeline",
-    description: "Advanced machine learning algorithms for intelligent shoe care optimization"
+    title: "Vision AI Shoe Recognition",
+    description: "On-device vision AI auto-recognizes shoes and runs the optimal care instantly"
   },
   {
-    title: "Sterilization Tech", 
-    description: "UV-C sterilization with smart sensors and automated deodorization system"
+    title: "Care System", 
+    description: "Premium built-in plus Showtree/Shoetree for surface-to-interior sterilizing, deodorizing, and"
+  },
+  {
+    title: "Personalization Platform",
+    description: "App reports and predictive alerts personalize care; edge-first, anonymized design"
   }
 ];

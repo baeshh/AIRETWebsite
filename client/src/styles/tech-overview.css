@@ -15,6 +15,28 @@
   z-index: 1;
 }
 
+/* Large Oval Glass Background */
+.glass-oval-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(800px, 85vw, 1200px);
+  height: clamp(500px, 60vh, 700px);
+  background: radial-gradient(ellipse at center, 
+    rgba(255, 255, 255, 0.06) 0%, 
+    rgba(255, 255, 255, 0.02) 50%,
+    transparent 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 
+    0 0 80px rgba(6, 182, 212, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
 .tech-content-container {
   position: relative;
   z-index: 10;
@@ -49,19 +71,20 @@
 }
 
 .tech-cards-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  max-width: 900px;
   animation: techFadeInUp 1s ease-out 1s both;
 }
 
 .tech-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 2rem;
-  width: 200px;
-  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,6 +92,7 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .tech-card::before {
@@ -87,9 +111,10 @@
 }
 
 .tech-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .tech-card-title {
@@ -282,13 +307,18 @@
   }
   
   .tech-cards-container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 1rem;
+    max-width: 320px;
   }
   
   .tech-card {
-    width: 280px;
-    height: 120px;
+    min-height: 160px;
+  }
+  
+  .glass-oval-background {
+    width: 95vw;
+    height: 70vh;
   }
   
   .world-map {

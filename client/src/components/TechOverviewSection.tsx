@@ -74,6 +74,13 @@ const TechOverviewSection = () => {
           aria-hidden="true"
         />
         
+        {/* Large Glass Oval Background */}
+        <div 
+          className="glass-oval-background" 
+          data-testid="glass-oval-background"
+          aria-hidden="true"
+        />
+        
         {/* World Map */}
         <WorldMap />
       </div>
