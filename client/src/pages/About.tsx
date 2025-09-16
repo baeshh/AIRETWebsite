@@ -95,14 +95,14 @@ export default function About() {
               position: "absolute", 
               top: "50%", 
               left: "50%", 
-              transform: "translate(-50%, -50%)",
-              width: "100%",
-              height: "100%",
-              opacity: "0.3",
+              transform: "translate(-50%, -50%) scale(1.8)",
+              width: "120%",
+              height: "120%",
+              opacity: "0.4",
               zIndex: "1"
             }}>
               <svg 
-                style={{ width: "100%", height: "100%", minHeight: "400px" }} 
+                style={{ width: "100%", height: "100%", minHeight: "500px" }} 
                 viewBox="0 0 900 500" 
                 xmlns="http://www.w3.org/2000/svg"
               >
