@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SectionHeader from "../components/SectionHeader";
 import TeamGrid from "../components/TeamGrid";
+import TechOverviewSection from "../components/TechOverviewSection";
 import team from "../content/team";
 import visionImage from "@assets/main_1757842353489.png";
 
@@ -85,6 +86,9 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* Technology Overview Section */}
+      <TechOverviewSection />
 
       {/* Team Section (White) */}
       <section className="section section--white">
