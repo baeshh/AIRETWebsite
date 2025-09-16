@@ -11,58 +11,64 @@ const WorldMap = memo(() => {
         xmlns="http://www.w3.org/2000/svg"
         style={{ width: '100%', height: '100%' }}
       >
-        {/* Detailed World Map Continents */}
+        {/* More Realistic World Map Continents */}
+        
         {/* North America */}
         <path
-          d="M200 100 Q160 80 120 100 L100 120 Q90 140 100 160 L120 180 Q140 190 160 185 L180 175 Q200 165 220 170 L240 160 Q250 140 240 120 L220 110 Q210 105 200 100 Z"
-          fill="rgba(255, 255, 255, 0.08)"
-          stroke="rgba(255, 255, 255, 0.25)"
-          strokeWidth="1"
+          d="M80 120 C70 110, 60 115, 55 125 C50 140, 60 155, 75 170 C90 185, 110 190, 130 185 C150 180, 170 170, 185 155 C200 140, 210 125, 205 110 C200 95, 185 90, 170 95 C155 100, 140 105, 125 110 C110 115, 95 118, 80 120 Z"
+          fill="rgba(255, 255, 255, 0.2)"
+          stroke="rgba(255, 255, 255, 0.7)"
+          strokeWidth="2"
           className="continent"
           data-testid="continent-north-america"
         />
+
         {/* South America */}
         <path
-          d="M180 200 Q160 195 140 205 L130 220 Q125 240 130 260 L135 280 Q140 300 150 320 L160 340 Q170 350 185 345 L200 335 Q210 320 205 305 L195 290 Q190 275 195 260 L190 245 Q185 230 190 215 L185 205 Q182 202 180 200 Z"
-          fill="rgba(255, 255, 255, 0.08)"
-          stroke="rgba(255, 255, 255, 0.25)"
-          strokeWidth="1"
+          d="M140 210 C130 205, 125 215, 128 230 C130 245, 135 260, 140 275 C145 290, 150 305, 160 320 C170 335, 185 340, 200 335 C210 330, 215 315, 210 300 C205 285, 200 270, 195 255 C190 240, 180 225, 165 215 C150 208, 145 207, 140 210 Z"
+          fill="rgba(255, 255, 255, 0.2)"
+          stroke="rgba(255, 255, 255, 0.7)"
+          strokeWidth="2"
           className="continent"
           data-testid="continent-south-america"
         />
-        {/* Europe */}
-        <path
-          d="M380 120 Q360 115 340 120 L330 130 Q325 140 330 150 L340 160 Q350 165 360 162 L380 158 Q400 155 420 160 L440 155 Q450 145 445 135 L430 125 Q415 120 400 122 L385 122 Q382 121 380 120 Z"
-          fill="rgba(255, 255, 255, 0.08)"
-          stroke="rgba(255, 255, 255, 0.25)"
-          strokeWidth="1"
-          className="continent"
-          data-testid="continent-europe"
-        />
+
         {/* Africa */}
         <path
-          d="M380 170 Q360 165 340 170 L325 180 Q315 200 320 220 L325 240 Q330 260 340 280 L350 300 Q360 320 375 325 L395 320 Q415 315 430 310 L445 300 Q455 285 450 270 L445 255 Q440 240 435 225 L430 210 Q425 195 415 185 L400 175 Q390 172 380 170 Z"
-          fill="rgba(255, 255, 255, 0.08)"
-          stroke="rgba(255, 255, 255, 0.25)"
-          strokeWidth="1"
+          d="M350 160 C340 155, 330 165, 335 180 C340 195, 345 210, 350 225 C355 240, 360 255, 365 270 C370 285, 375 300, 385 310 C395 320, 410 315, 420 305 C430 295, 435 280, 430 265 C425 250, 420 235, 415 220 C410 205, 400 190, 385 180 C370 170, 360 162, 350 160 Z"
+          fill="rgba(255, 255, 255, 0.2)"
+          stroke="rgba(255, 255, 255, 0.7)"
+          strokeWidth="2"
           className="continent"
           data-testid="continent-africa"
         />
+
+        {/* Europe */}
+        <path
+          d="M320 110 C310 105, 300 110, 305 120 C310 130, 320 135, 335 140 C350 145, 365 150, 380 145 C395 140, 405 130, 400 120 C395 110, 385 105, 370 108 C355 110, 340 112, 325 115 C322 116, 321 115, 320 110 Z"
+          fill="rgba(255, 255, 255, 0.2)"
+          stroke="rgba(255, 255, 255, 0.7)"
+          strokeWidth="2"
+          className="continent"
+          data-testid="continent-europe"
+        />
+
         {/* Asia */}
         <path
-          d="M450 100 Q430 95 410 100 L395 110 Q385 125 390 140 L400 155 Q420 165 440 160 L480 155 Q520 150 560 155 L600 160 Q640 165 680 170 L720 175 Q760 180 780 175 L800 170 Q810 160 805 145 L795 130 Q780 120 760 125 L735 130 Q710 135 685 130 L660 125 Q635 120 610 125 L585 130 Q560 135 535 130 L510 125 Q485 115 470 110 L455 105 Q452 102 450 100 Z"
-          fill="rgba(255, 255, 255, 0.08)"
-          stroke="rgba(255, 255, 255, 0.25)"
-          strokeWidth="1"
+          d="M420 90 C410 85, 400 90, 405 105 C410 120, 425 130, 450 135 C475 140, 500 145, 525 150 C550 155, 575 160, 600 165 C625 170, 650 175, 675 180 C700 185, 725 190, 750 185 C775 180, 790 170, 785 155 C780 140, 765 130, 745 125 C725 120, 705 118, 685 120 C665 122, 645 125, 625 128 C605 130, 585 132, 565 130 C545 128, 525 125, 505 120 C485 115, 465 110, 445 105 C435 102, 425 95, 420 90 Z"
+          fill="rgba(255, 255, 255, 0.2)"
+          stroke="rgba(255, 255, 255, 0.7)"
+          strokeWidth="2"
           className="continent"
           data-testid="continent-asia"
         />
+
         {/* Australia */}
         <path
-          d="M650 320 Q630 315 610 320 L595 330 Q590 340 595 350 L605 360 Q620 365 635 362 L650 358 Q665 355 680 358 L695 355 Q705 345 700 335 L690 325 Q675 322 660 323 L655 322 Q652 321 650 320 Z"
-          fill="rgba(255, 255, 255, 0.08)"
-          stroke="rgba(255, 255, 255, 0.25)"
-          strokeWidth="1"
+          d="M630 330 C620 325, 615 330, 620 340 C625 350, 635 355, 650 358 C665 360, 680 362, 695 360 C710 358, 720 350, 715 340 C710 330, 700 325, 685 328 C670 330, 655 332, 645 335 C635 337, 632 336, 630 330 Z"
+          fill="rgba(255, 255, 255, 0.2)"
+          stroke="rgba(255, 255, 255, 0.7)"
+          strokeWidth="2"
           className="continent"
           data-testid="continent-australia"
         />
@@ -102,23 +108,23 @@ const WorldMap = memo(() => {
               <circle
                 cx={city.x}
                 cy={city.y}
-                r="6"
+                r="8"
                 fill={city.color}
                 stroke="rgba(255, 255, 255, 0.9)"
                 strokeWidth="2"
                 className="city-dot"
                 style={{
-                  filter: `drop-shadow(0 0 8px ${city.color})`
+                  filter: `drop-shadow(0 0 12px ${city.color})`
                 }}
               />
               <circle
                 cx={city.x}
                 cy={city.y}
-                r="12"
+                r="16"
                 fill="none"
                 stroke={city.color}
-                strokeWidth="1"
-                opacity="0.4"
+                strokeWidth="1.5"
+                opacity="0.5"
                 className="city-pulse"
               />
             </g>
@@ -131,12 +137,16 @@ const WorldMap = memo(() => {
             <text
               key={`${city.id}-label`}
               x={city.x}
-              y={city.y - 20}
+              y={city.y - 25}
               textAnchor="middle"
-              fill="rgba(255, 255, 255, 0.9)"
-              fontSize="12"
-              fontWeight="500"
+              fill="rgba(255, 255, 255, 0.95)"
+              fontSize="14"
+              fontWeight="600"
               fontFamily="system-ui, sans-serif"
+              style={{
+                textShadow: "0 0 8px rgba(0, 0, 0, 0.8)",
+                filter: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5))"
+              }}
               data-testid={`city-label-${city.id}`}
             >
               {city.name}
