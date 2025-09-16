@@ -89,7 +89,7 @@ export default function About() {
       {/* Technology Overview Section (Black) */}
       <section className="section section--black">
         <div className="container">
-          <div style={{ position: "relative", overflow: "visible", padding: "4rem 0" }}>
+          <div style={{ position: "relative", overflow: "hidden", padding: "4rem 0" }}>
             {/* Background Map */}
             <div style={{ 
               position: "absolute", 
@@ -98,12 +98,12 @@ export default function About() {
               transform: "translate(-50%, -50%)",
               width: "100%",
               height: "100%",
-              opacity: "0.4",
+              opacity: "0.3",
               zIndex: "1"
             }}>
               <svg 
-                style={{ width: "100%", height: "100%", minHeight: "600px" }} 
-                viewBox="0 0 600 350" 
+                style={{ width: "100%", height: "100%", minHeight: "400px" }} 
+                viewBox="0 0 900 500" 
                 xmlns="http://www.w3.org/2000/svg"
               >
                 {/* World Map Continents */}
