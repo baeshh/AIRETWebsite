@@ -88,6 +88,106 @@ export default function About() {
 
       {/* Technology Overview Section (Black) */}
       <section className="section section--black">
+        <style>
+          {`
+            @keyframes continentPulse {
+              0% { 
+                stroke: #64748b; 
+                fill: rgba(100, 116, 139, 0.1);
+                filter: drop-shadow(0 0 5px rgba(100, 116, 139, 0.3));
+              }
+              100% { 
+                stroke: #94a3b8; 
+                fill: rgba(148, 163, 184, 0.15);
+                filter: drop-shadow(0 0 15px rgba(148, 163, 184, 0.5));
+              }
+            }
+            
+            @keyframes flowingLine {
+              0% { 
+                stroke-dashoffset: 0; 
+                opacity: 0.3;
+              }
+              50% { 
+                opacity: 0.8;
+              }
+              100% { 
+                stroke-dashoffset: -200; 
+                opacity: 0.3;
+              }
+            }
+            
+            @keyframes cityPulse {
+              0%, 100% { 
+                r: 6; 
+                opacity: 1; 
+              }
+              50% { 
+                r: 10; 
+                opacity: 0.7; 
+              }
+            }
+            
+            @keyframes labelGlow {
+              0% { opacity: 0.8; }
+              100% { opacity: 1; }
+            }
+            
+            @keyframes fadeInUp {
+              from {
+                opacity: 0;
+                transform: translateY(30px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+            
+            .continent-outline {
+              animation: continentPulse 6s ease-in-out infinite alternate;
+            }
+            
+            .connection-line {
+              opacity: 0.6;
+              animation: flowingLine 4s linear infinite;
+            }
+            
+            .line-seoul-ny { animation-delay: 0s; }
+            .line-seoul-la { animation-delay: 0.7s; }
+            .line-seoul-vegas { animation-delay: 1.4s; }
+            .line-ny-la { animation-delay: 2.1s; }
+            .line-ny-vegas { animation-delay: 2.8s; }
+            .line-la-vegas { animation-delay: 3.5s; }
+            
+            .city-dot {
+              animation: cityPulse 2s ease-in-out infinite;
+              filter: drop-shadow(0 0 8px currentColor);
+            }
+            
+            .seoul-dot { animation-delay: 0s; }
+            .newyork-dot { animation-delay: 0.5s; }
+            .la-dot { animation-delay: 1s; }
+            .vegas-dot { animation-delay: 1.5s; }
+            
+            .city-labels text {
+              animation: labelGlow 3s ease-in-out infinite alternate;
+              text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+            }
+            
+            .tech-overview-title {
+              animation: fadeInUp 1s ease-out;
+            }
+            
+            .tech-overview-subtitle {
+              animation: fadeInUp 1s ease-out 0.5s both;
+            }
+            
+            .tech-cards-container {
+              animation: fadeInUp 1s ease-out 1s both;
+            }
+          `}
+        </style>
         <div className="container">
           <div style={{ position: "relative", overflow: "hidden", padding: "4rem 0" }}>
             {/* Background Map */}
@@ -98,7 +198,7 @@ export default function About() {
               transform: "translate(-50%, -50%)",
               width: "100%",
               height: "100%",
-              opacity: "0.3",
+              opacity: "0.4",
               zIndex: "1"
             }}>
               <svg 
@@ -108,18 +208,21 @@ export default function About() {
               >
                 {/* World Map Continents */}
                 <path 
+                  className="continent-outline"
                   d="M158 206c0-1 1-2 3-2l17-3c4-1 8-2 11 0 3 2 5 5 9 6l8 2c3 1 6 0 8-2l5-4c2-2 4-3 7-3l6 1c3 1 5 3 7 5l4 5c1 2 2 4 4 5l5 3c2 1 4 1 6 0l4-2c2-1 4-1 6 0l5 2c2 1 4 3 5 5l2 4c1 2 1 4 0 6l-2 4c-1 2-3 4-5 5l-4 2c-2 1-4 1-6 0l-5-3c-2-1-3-3-4-5l-2-4c-1-2-1-4 0-6l1-3c0-1 0-2-1-3l-2-2c-1-1-3-1-4 0l-3 2c-1 1-2 3-2 5l0 4c0 2-1 4-3 5l-4 2c-2 1-4 0-6-1l-4-3c-1-1-2-3-2-5l0-4c0-2 1-4 3-5l2-1z" 
                   stroke="#64748b" 
                   strokeWidth="1.5" 
                   fill="rgba(100, 116, 139, 0.1)"
                 />
                 <path 
+                  className="continent-outline"
                   d="M480 190c4-1 8-1 12 0l9 3c4 1 7 4 9 7l5 7c2 3 3 7 3 11l0 10c0 4-1 8-3 11l-5 7c-2 3-5 6-9 7l-9 3c-4 1-8 1-12 0l-9-3c-4-1-7-4-9-7l-5-7c-2-3-3-7-3-11l0-10c0-4 1-8 3-11l5-7c2-3 5-6 9-7l9-3z" 
                   stroke="#64748b" 
                   strokeWidth="1.5" 
                   fill="rgba(100, 116, 139, 0.1)"
                 />
                 <path 
+                  className="continent-outline"
                   d="M580 120c6-2 12-2 18 0l14 4c5 2 10 5 13 9l8 10c3 4 5 9 5 14l0 12c0 5-2 10-5 14l-8 10c-3 4-8 7-13 9l-14 4c-6 2-12 2-18 0l-14-4c-5-2-10-5-13-9l-8-10c-3-4-5-9-5-14l0-12c0-5 2-10 5-14l8-10c3-4 8-7 13-9l14-4z" 
                   stroke="#64748b" 
                   strokeWidth="1.5" 
@@ -127,27 +230,37 @@ export default function About() {
                 />
                 
                 {/* Connection Lines */}
-                <line x1="730" y1="160" x2="200" y2="150" stroke="#06b6d4" strokeWidth="2" strokeDasharray="15,5" opacity="0.6"/>
-                <line x1="730" y1="160" x2="120" y2="180" stroke="#10b981" strokeWidth="2" strokeDasharray="10,10" opacity="0.6"/>
-                <line x1="730" y1="160" x2="160" y2="170" stroke="#f59e0b" strokeWidth="2" strokeDasharray="12,3" opacity="0.6"/>
+                <g className="connection-lines">
+                  <line className="connection-line line-seoul-ny" x1="730" y1="160" x2="200" y2="150" stroke="#06b6d4" strokeWidth="2" strokeDasharray="15,5"/>
+                  <line className="connection-line line-seoul-la" x1="730" y1="160" x2="120" y2="180" stroke="#10b981" strokeWidth="2" strokeDasharray="10,10"/>
+                  <line className="connection-line line-seoul-vegas" x1="730" y1="160" x2="160" y2="170" stroke="#f59e0b" strokeWidth="2" strokeDasharray="12,3"/>
+                  <line className="connection-line line-ny-la" x1="200" y1="150" x2="120" y2="180" stroke="#ef4444" strokeWidth="2" strokeDasharray="8,8"/>
+                  <line className="connection-line line-ny-vegas" x1="200" y1="150" x2="160" y2="170" stroke="#8b5cf6" strokeWidth="2" strokeDasharray="6,12"/>
+                  <line className="connection-line line-la-vegas" x1="120" y1="180" x2="160" y2="170" stroke="#ec4899" strokeWidth="2" strokeDasharray="20,5"/>
+                </g>
                 
                 {/* Cities */}
-                <circle cx="730" cy="160" r="6" fill="#10b981"/>
-                <circle cx="200" cy="150" r="6" fill="#3b82f6"/>
-                <circle cx="120" cy="180" r="6" fill="#f59e0b"/>
-                <circle cx="160" cy="170" r="6" fill="#ef4444"/>
+                <g className="cities">
+                  <circle className="city-dot seoul-dot" cx="730" cy="160" r="6" fill="#10b981"/>
+                  <circle className="city-dot newyork-dot" cx="200" cy="150" r="6" fill="#3b82f6"/>
+                  <circle className="city-dot la-dot" cx="120" cy="180" r="6" fill="#f59e0b"/>
+                  <circle className="city-dot vegas-dot" cx="160" cy="170" r="6" fill="#ef4444"/>
+                </g>
                 
                 {/* City Labels */}
-                <text x="735" y="145" fill="rgba(255,255,255,0.9)" fontSize="12" fontWeight="600" textAnchor="start">Seoul</text>
-                <text x="205" y="135" fill="rgba(255,255,255,0.9)" fontSize="12" fontWeight="600" textAnchor="start">New York</text>
-                <text x="75" y="195" fill="rgba(255,255,255,0.9)" fontSize="12" fontWeight="600" textAnchor="start">Los Angeles</text>
-                <text x="125" y="155" fill="rgba(255,255,255,0.9)" fontSize="12" fontWeight="600" textAnchor="start">Las Vegas</text>
+                <g className="city-labels">
+                  <text x="735" y="145" fill="rgba(255,255,255,0.9)" fontSize="12" fontWeight="600" textAnchor="start">Seoul</text>
+                  <text x="205" y="135" fill="rgba(255,255,255,0.9)" fontSize="12" fontWeight="600" textAnchor="start">New York</text>
+                  <text x="75" y="195" fill="rgba(255,255,255,0.9)" fontSize="12" fontWeight="600" textAnchor="start">Los Angeles</text>
+                  <text x="125" y="155" fill="rgba(255,255,255,0.9)" fontSize="12" fontWeight="600" textAnchor="start">Las Vegas</text>
+                </g>
               </svg>
             </div>
 
             {/* Content */}
             <div style={{ position: "relative", zIndex: "10", textAlign: "center" }}>
               <h1 
+                className="tech-overview-title"
                 style={{
                   fontSize: "3.5rem",
                   fontWeight: "300",
@@ -163,6 +276,7 @@ export default function About() {
                 Airet Corp.
               </h1>
               <h2 
+                className="tech-overview-subtitle"
                 style={{
                   fontSize: "1.5rem",
                   fontWeight: "400",
@@ -177,6 +291,7 @@ export default function About() {
               
               {/* Technology Cards */}
               <div 
+                className="tech-cards-container"
                 style={{
                   display: "flex",
                   justifyContent: "center",
