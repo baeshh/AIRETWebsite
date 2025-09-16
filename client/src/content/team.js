@@ -1,21 +1,4 @@
-export interface TeamMember {
-  name: string;
-  role: string;
-  note: string;
-}
-
-export interface Founder {
-  name: string;
-  title: string;
-  bio: string;
-}
-
-export interface TeamData {
-  founder: Founder;
-  members: TeamMember[];
-}
-
-const teamData: TeamData = {
+export default {
   founder: {
     name: 'Austin Koo',
     title: 'Founder & CEO',
@@ -59,5 +42,3 @@ const teamData: TeamData = {
     }
   ]
 };
-
-export default teamData;
