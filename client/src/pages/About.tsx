@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SectionHeader from "../components/SectionHeader";
 import TeamGrid from "../components/TeamGrid";
 import team from "../content/team";
@@ -13,6 +13,38 @@ interface Milestone {
 
 export default function About() {
   const [activeYear, setActiveYear] = useState<Year>(2025);
+  
+  // Create floating particles effect
+  useEffect(() => {
+    const createParticles = () => {
+      const container = document.getElementById('particles-container');
+      if (!container) return;
+      
+      // Clear existing particles
+      container.innerHTML = '';
+      
+      const particleCount = 50;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        container.appendChild(particle);
+      }
+    };
+
+    createParticles();
+    
+    // Clean up function
+    return () => {
+      const container = document.getElementById('particles-container');
+      if (container) {
+        container.innerHTML = '';
+      }
+    };
+  }, []);
 
   const milestonesByYear: Record<Year, Milestone[]> = {
     2023: [
@@ -87,7 +119,7 @@ export default function About() {
       </section>
 
       {/* Technology Overview Section (Black) */}
-      <section className="section section--black">
+      <section className="section section--black" style={{ position: "relative", overflow: "hidden" }}>
         <style>
           {`
             @keyframes continentPulse {
@@ -144,7 +176,30 @@ export default function About() {
               }
             }
             
-            .continent-outline {
+            @keyframes float {
+              0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+              }
+              10% {
+                opacity: 1;
+              }
+              90% {
+                opacity: 1;
+              }
+              100% {
+                transform: translateY(-10px) translateX(100px);
+                opacity: 0;
+              }
+            }
+            
+            .world-map .continent-outline,
+            .world-map .map-inner path,
+            .world-map .map-inner polygon {
+              stroke: #64748b;
+              stroke-width: 1.2;
+              fill: rgba(100, 116, 139, 0.08);
+              opacity: 0.85;
               animation: continentPulse 6s ease-in-out infinite alternate;
             }
             
@@ -186,51 +241,123 @@ export default function About() {
             .tech-cards-container {
               animation: fadeInUp 1s ease-out 1s both;
             }
+            
+            .floating-particles {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              pointer-events: none;
+              z-index: 2;
+            }
+            
+            .particle {
+              position: absolute;
+              width: 2px;
+              height: 2px;
+              background: rgba(6, 182, 212, 0.5);
+              border-radius: 50%;
+              animation: float 15s linear infinite;
+            }
+            
+            .table-card {
+              background: rgba(255, 255, 255, 0.08);
+              backdrop-filter: blur(10px);
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              border-radius: 12px;
+              padding: 2rem;
+              width: 300px;
+              height: 180px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              transition: all 0.3s ease;
+              position: relative;
+              overflow: hidden;
+              cursor: pointer;
+            }
+            
+            .table-card::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: -100%;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+              transition: left 0.6s;
+            }
+            
+            .table-card:hover::before {
+              left: 100%;
+            }
+            
+            .table-card:hover {
+              transform: translateY(-8px) scale(1.02);
+              background: rgba(255, 255, 255, 0.12);
+              border-color: rgba(255, 255, 255, 0.2);
+            }
+            
+            .table-title {
+              font-size: 1.1rem;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+              color: #e2e8f0;
+              text-align: center;
+            }
+            
+            .table-description {
+              font-size: 0.9rem;
+              color: #94a3b8;
+              text-align: center;
+              line-height: 1.4;
+            }
           `}
         </style>
+        
+        {/* Floating Particles */}
+        <div className="floating-particles" id="particles-container"></div>
+        
         <div className="container">
-          <div style={{ position: "relative", overflow: "hidden", padding: "4rem 0" }}>
+          <div style={{ position: "relative", padding: "4rem 0", minHeight: "100vh" }}>
             {/* Background Map */}
             <div style={{ 
               position: "absolute", 
               top: "50%", 
               left: "50%", 
               transform: "translate(-50%, -50%)",
-              width: "100%",
-              height: "100%",
+              width: "900px",
+              height: "500px",
               opacity: "0.4",
               zIndex: "1"
             }}>
               <svg 
-                style={{ width: "100%", height: "100%", minHeight: "400px" }} 
+                className="world-map"
+                style={{ width: "100%", height: "100%" }} 
                 viewBox="0 0 900 500" 
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* World Map Continents */}
-                <path 
-                  className="continent-outline"
-                  d="M158 206c0-1 1-2 3-2l17-3c4-1 8-2 11 0 3 2 5 5 9 6l8 2c3 1 6 0 8-2l5-4c2-2 4-3 7-3l6 1c3 1 5 3 7 5l4 5c1 2 2 4 4 5l5 3c2 1 4 1 6 0l4-2c2-1 4-1 6 0l5 2c2 1 4 3 5 5l2 4c1 2 1 4 0 6l-2 4c-1 2-3 4-5 5l-4 2c-2 1-4 1-6 0l-5-3c-2-1-3-3-4-5l-2-4c-1-2-1-4 0-6l1-3c0-1 0-2-1-3l-2-2c-1-1-3-1-4 0l-3 2c-1 1-2 3-2 5l0 4c0 2-1 4-3 5l-4 2c-2 1-4 0-6-1l-4-3c-1-1-2-3-2-5l0-4c0-2 1-4 3-5l2-1z" 
-                  stroke="#64748b" 
-                  strokeWidth="1.5" 
-                  fill="rgba(100, 116, 139, 0.1)"
-                />
-                <path 
-                  className="continent-outline"
-                  d="M480 190c4-1 8-1 12 0l9 3c4 1 7 4 9 7l5 7c2 3 3 7 3 11l0 10c0 4-1 8-3 11l-5 7c-2 3-5 6-9 7l-9 3c-4 1-8 1-12 0l-9-3c-4-1-7-4-9-7l-5-7c-2-3-3-7-3-11l0-10c0-4 1-8 3-11l5-7c2-3 5-6 9-7l9-3z" 
-                  stroke="#64748b" 
-                  strokeWidth="1.5" 
-                  fill="rgba(100, 116, 139, 0.1)"
-                />
-                <path 
-                  className="continent-outline"
-                  d="M580 120c6-2 12-2 18 0l14 4c5 2 10 5 13 9l8 10c3 4 5 9 5 14l0 12c0 5-2 10-5 14l-8 10c-3 4-8 7-13 9l-14 4c-6 2-12 2-18 0l-14-4c-5-2-10-5-13-9l-8-10c-3-4-5-9-5-14l0-12c0-5 2-10 5-14l8-10c3-4 8-7 13-9l14-4z" 
-                  stroke="#64748b" 
-                  strokeWidth="1.5" 
-                  fill="rgba(100, 116, 139, 0.1)"
-                />
+                {/* North America */}
+                <path className="continent-outline" d="M158 206c0-1 1-2 3-2l17-3c4-1 8-2 11 0 3 2 5 5 9 6l8 2c3 1 6 0 8-2l5-4c2-2 4-3 7-3l6 1c3 1 5 3 7 5l4 5c1 2 2 4 4 5l5 3c2 1 4 1 6 0l4-2c2-1 4-1 6 0l5 2c2 1 4 3 5 5l2 4c1 2 1 4 0 6l-2 4c-1 2-3 4-5 5l-4 2c-2 1-4 1-6 0l-5-3c-2-1-3-3-4-5l-2-4c-1-2-1-4 0-6l1-3c0-1 0-2-1-3l-2-2c-1-1-3-1-4 0l-3 2c-1 1-2 3-2 5l0 4c0 2-1 4-3 5l-4 2c-2 1-4 0-6-1l-4-3c-1-1-2-3-2-5l0-4c0-2 1-4 3-5l2-1z"/>
+                
+                {/* South America */}
+                <path className="continent-outline" d="M245 280c2-1 4-1 6 0l4 2c2 1 3 3 4 5l2 4c1 2 1 4 0 6l-1 3c0 1 0 2 1 3l2 2c1 1 3 1 4 0l3-2c1-1 2-3 2-5l0-4c0-2 1-4 3-5l4-2c2-1 4 0 6 1l4 3c1 1 2 3 2 5l0 4c0 2-1 4-3 5l-2 1c-1 0-2 1-2 2l0 17c0 4 1 8-1 11-2 3-5 5-6 9l-2 8c-1 3 0 6 2 8l4 5c2 2 3 4 3 7l-1 6c-1 3-3 5-5 7l-5 4c-2 2-4 3-7 3l-6-1c-3-1-5-3-7-5l-4-5c-1-2-2-4-4-5l-5-3c-2-1-4-1-6 0l-4 2c-2 1-4 1-6 0l-5-2c-2-1-4-3-5-5l-2-4c-1-2-1-4 0-6l2-4c1-2 3-4 5-5l4-2c2-1 4-1 6 0l5 3c2 1 3 3 4 5l2 4c1 2 1 4 0 6l-1 3z"/>
+                
+                {/* Europe */}
+                <path className="continent-outline" d="M458 142c3-1 6-1 9 0l7 2c3 1 5 3 7 5l4 4c2 2 3 4 3 7l0 5c0 3-1 5-3 7l-4 4c-2 2-4 3-7 3l-5 0c-3 0-5-1-7-3l-4-4c-2-2-3-4-3-7l0-5c0-3 1-5 3-7l4-4c2-2 4-3 7-3z"/>
+                
+                {/* Africa */}
+                <path className="continent-outline" d="M480 190c4-1 8-1 12 0l9 3c4 1 7 4 9 7l5 7c2 3 3 7 3 11l0 10c0 4-1 8-3 11l-5 7c-2 3-5 6-9 7l-9 3c-4 1-8 1-12 0l-9-3c-4-1-7-4-9-7l-5-7c-2-3-3-7-3-11l0-10c0-4 1-8 3-11l5-7c2-3 5-6 9-7l9-3z"/>
+                
+                {/* Asia */}
+                <path className="continent-outline" d="M580 120c6-2 12-2 18 0l14 4c5 2 10 5 13 9l8 10c3 4 5 9 5 14l0 12c0 5-2 10-5 14l-8 10c-3 4-8 7-13 9l-14 4c-6 2-12 2-18 0l-14-4c-5-2-10-5-13-9l-8-10c-3-4-5-9-5-14l0-12c0-5 2-10 5-14l8-10c3-4 8-7 13-9l14-4z"/>
+                
+                {/* Australia */}
+                <path className="continent-outline" d="M750 350c3-1 6-1 9 0l7 2c3 1 5 3 7 5l4 4c2 2 3 4 3 7l0 5c0 3-1 5-3 7l-4 4c-2 2-4 3-7 3l-5 0c-3 0-5-1-7-3l-4-4c-2-2-3-4-3-7l0-5c0-3 1-5 3-7l4-4c2-2 4-3 7-3z"/>
                 
                 {/* Connection Lines */}
-                <g className="connection-lines">
+                <g>
                   <line className="connection-line line-seoul-ny" x1="730" y1="160" x2="200" y2="150" stroke="#06b6d4" strokeWidth="2" strokeDasharray="15,5"/>
                   <line className="connection-line line-seoul-la" x1="730" y1="160" x2="120" y2="180" stroke="#10b981" strokeWidth="2" strokeDasharray="10,10"/>
                   <line className="connection-line line-seoul-vegas" x1="730" y1="160" x2="160" y2="170" stroke="#f59e0b" strokeWidth="2" strokeDasharray="12,3"/>
@@ -240,7 +367,7 @@ export default function About() {
                 </g>
                 
                 {/* Cities */}
-                <g className="cities">
+                <g>
                   <circle className="city-dot seoul-dot" cx="730" cy="160" r="6" fill="#10b981"/>
                   <circle className="city-dot newyork-dot" cx="200" cy="150" r="6" fill="#3b82f6"/>
                   <circle className="city-dot la-dot" cx="120" cy="180" r="6" fill="#f59e0b"/>
@@ -258,11 +385,11 @@ export default function About() {
             </div>
 
             {/* Content */}
-            <div style={{ position: "relative", zIndex: "10", textAlign: "center" }}>
+            <div style={{ position: "relative", zIndex: "10", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100vh" }}>
               <h1 
                 className="tech-overview-title"
                 style={{
-                  fontSize: "3.5rem",
+                  fontSize: "4rem",
                   fontWeight: "300",
                   letterSpacing: "0.1em",
                   marginBottom: "0.5rem",
@@ -303,105 +430,27 @@ export default function About() {
                 data-testid="technology-cards"
               >
                 <div 
-                  style={{
-                    background: "rgba(255, 255, 255, 0.08)",
-                    backdropFilter: "blur(10px)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                    borderRadius: "12px",
-                    padding: "2rem",
-                    width: "200px",
-                    height: "150px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    transition: "all 0.3s ease",
-                    cursor: "pointer"
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)";
-                    (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.12)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                    (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.08)";
-                  }}
-                  data-testid="card-ai-solutions"
+                  className="table-card"
+                  data-testid="card-vision-ai"
                 >
-                  <div style={{ fontSize: "1.1rem", fontWeight: "600", marginBottom: "0.5rem", color: "#e2e8f0" }}>
-                    AI Solutions
-                  </div>
-                  <div style={{ fontSize: "0.9rem", color: "#94a3b8", textAlign: "center", lineHeight: "1.4" }}>
-                    Advanced machine learning and artificial intelligence platforms
-                  </div>
+                  <div className="table-title">Vision AI Shoe Recognition</div>
+                  <div className="table-description">On-device vision AI auto-recognizes shoes and runs the optimal care instantly</div>
                 </div>
 
                 <div 
-                  style={{
-                    background: "rgba(255, 255, 255, 0.08)",
-                    backdropFilter: "blur(10px)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                    borderRadius: "12px",
-                    padding: "2rem",
-                    width: "200px",
-                    height: "150px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    transition: "all 0.3s ease",
-                    cursor: "pointer"
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)";
-                    (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.12)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                    (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.08)";
-                  }}
-                  data-testid="card-cloud-infrastructure"
+                  className="table-card"
+                  data-testid="card-smart-system"
                 >
-                  <div style={{ fontSize: "1.1rem", fontWeight: "600", marginBottom: "0.5rem", color: "#e2e8f0" }}>
-                    Cloud Infrastructure
-                  </div>
-                  <div style={{ fontSize: "0.9rem", color: "#94a3b8", textAlign: "center", lineHeight: "1.4" }}>
-                    Scalable and secure cloud computing services
-                  </div>
+                  <div className="table-title">Smart Shoe-Care System</div>
+                  <div className="table-description">Premium built-in plus Showtree/Shoetree for surface-to-interior sterilizing, deodorizing, and gentle drying</div>
                 </div>
 
                 <div 
-                  style={{
-                    background: "rgba(255, 255, 255, 0.08)",
-                    backdropFilter: "blur(10px)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                    borderRadius: "12px",
-                    padding: "2rem",
-                    width: "200px",
-                    height: "150px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    transition: "all 0.3s ease",
-                    cursor: "pointer"
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)";
-                    (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.12)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                    (e.currentTarget as HTMLElement).style.background = "rgba(255, 255, 255, 0.08)";
-                  }}
-                  data-testid="card-data-analytics"
+                  className="table-card"
+                  data-testid="card-data-platform"
                 >
-                  <div style={{ fontSize: "1.1rem", fontWeight: "600", marginBottom: "0.5rem", color: "#e2e8f0" }}>
-                    Data Analytics
-                  </div>
-                  <div style={{ fontSize: "0.9rem", color: "#94a3b8", textAlign: "center", lineHeight: "1.4" }}>
-                    Real-time data processing and business intelligence
-                  </div>
+                  <div className="table-title">Data & Personalization Platform</div>
+                  <div className="table-description">App reports and predictive alerts personalize care; edge-first, anonymized design protects privacy</div>
                 </div>
               </div>
             </div>
