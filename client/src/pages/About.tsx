@@ -55,10 +55,10 @@ export default function About() {
                   Our Vision
                 </h3>
                 <p style={{ opacity: "0.8", marginBottom: "1rem" }} data-testid="text-vision-paragraph-1">
-                  AIRET is not just a shoe care device it is a smart built-in system equipped with UV-C sterilization, humidity control, and display features.
+                  Airet is a life tech company actualizing the vision of “the smart home that begins at your entryway."
                 </p>
                 <p style={{ opacity: "0.8" }} data-testid="text-vision-paragraph-2">
-                  We transform the entrance from a simple passageway into the starting point of the smart home and the first experience of a luxury lifestyle.
+                  We develop a built-in AI shoe care system that integrates storage, sterilization, drying, deodorization, and data management into a single, seamless solution.
                 </p>
               </div>
               <div
