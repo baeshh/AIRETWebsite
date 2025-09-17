@@ -1,12 +1,21 @@
 import { motion } from "framer-motion";
+import worldMapImage from "@assets/image_1758118119885.png";
 
 export default function WorldMap() {
-  // 도시 위치 (실제 지리적 위치에 맞게 조정)
+  // 실제 지리적 좌표를 이미지 좌표로 변환하는 함수
+  const latLongToImageCoords = (lat: number, long: number) => {
+    // 이미지의 실제 좌표 범위 분석: 경도 -180 ~ +180, 위도 -60 ~ +80
+    const x = ((long + 180) / 360) * 100; // 경도를 0-100% 범위로 변환
+    const y = ((80 - lat) / 140) * 100;   // 위도를 0-100% 범위로 변환 (위아래 반전)
+    return { x, y };
+  };
+
+  // 실제 지리적 좌표 기반 도시 위치
   const cities = {
-    seoul: { x: 85, y: 35, name: "Seoul" },
-    vegas: { x: 15, y: 40, name: "Las Vegas" },
-    nyc: { x: 25, y: 35, name: "New York" },
-    la: { x: 10, y: 42, name: "Los Angeles" }
+    seoul: { ...latLongToImageCoords(37.5665, 126.978), name: "Seoul", lat: 37.5665, long: 126.978 },
+    vegas: { ...latLongToImageCoords(36.1699, -115.1398), name: "Las Vegas", lat: 36.1699, long: -115.1398 },
+    nyc: { ...latLongToImageCoords(40.7128, -74.006), name: "New York", lat: 40.7128, long: -74.006 },
+    la: { ...latLongToImageCoords(34.0522, -118.2437), name: "Los Angeles", lat: 34.0522, long: -118.2437 }
   };
 
   // 애니메이션 화살표 경로
@@ -22,108 +31,26 @@ export default function WorldMap() {
         position: "relative", 
         width: "100%", 
         height: "400px",
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         borderRadius: "16px",
-        overflow: "hidden"
+        overflow: "hidden",
+        background: "#f8fafc"
       }}
       data-testid="world-map"
     >
-      {/* 실제 세계 지도 기반 SVG */}
-      <svg
-        viewBox="0 0 100 50"
+      {/* 실제 세계 지도 이미지 */}
+      <img
+        src={worldMapImage}
+        alt="World Map"
         style={{
           position: "absolute",
           top: 0,
           left: 0,
           width: "100%",
           height: "100%",
-          opacity: 0.5
+          objectFit: "cover",
+          opacity: 0.8
         }}
-      >
-        {/* 그린랜드 */}
-        <path
-          d="M20 8 Q25 6 30 8 L32 12 Q30 15 25 14 L20 12 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 북미 대륙 - 캐나다와 미국 */}
-        <path
-          d="M5 12 Q8 8 15 10 L20 12 Q25 10 30 12 L35 14 Q38 16 35 20 L32 24 Q35 28 32 32 L28 35 Q25 38 20 36 L15 38 Q10 35 8 30 L5 25 Q3 20 5 15 L5 12 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 멕시코 */}
-        <path
-          d="M12 35 Q18 33 22 35 L20 38 Q15 37 12 35 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 남미 대륙 - 브라질과 아르헨티나 */}
-        <path
-          d="M20 38 Q25 36 28 40 L30 45 Q28 50 25 52 L22 50 Q18 48 16 45 L18 40 Q20 38 20 38 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 아이슬란드 */}
-        <path
-          d="M42 12 Q45 11 46 13 L44 15 Q42 14 42 12 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 영국 */}
-        <path
-          d="M46 18 Q48 17 49 19 L47 21 Q46 20 46 18 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 유럽 대륙 */}
-        <path
-          d="M48 15 Q52 12 58 15 L60 18 Q58 22 55 24 L52 22 Q48 20 46 18 L48 15 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 아프리카 대륙 */}
-        <path
-          d="M50 24 Q54 22 58 25 L60 30 Q58 38 55 42 L52 45 Q48 42 46 38 L44 32 Q46 28 50 24 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 러시아 (아시아 부분) */}
-        <path
-          d="M60 10 Q75 8 90 12 L95 15 Q92 20 88 22 L80 20 Q70 18 60 15 L60 10 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 중국과 인도 */}
-        <path
-          d="M70 22 Q78 20 85 24 L88 28 Q85 32 80 34 L75 32 Q70 30 68 26 L70 22 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 인도네시아 */}
-        <path
-          d="M75 34 Q82 32 85 35 L83 37 Q78 36 75 34 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 호주 */}
-        <path
-          d="M78 40 Q85 38 90 40 L92 42 Q88 44 83 43 L78 42 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 일본 */}
-        <path
-          d="M90 28 Q92 26 94 28 L93 30 Q91 29 90 28 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-        
-        {/* 뉴질랜드 */}
-        <path
-          d="M92 45 Q94 44 95 46 L94 48 Q92 47 92 45 Z"
-          fill="rgba(255, 255, 255, 0.8)"
-        />
-      </svg>
+      />
 
       {/* 도시 마커들 */}
       {Object.entries(cities).map(([key, city]) => (
