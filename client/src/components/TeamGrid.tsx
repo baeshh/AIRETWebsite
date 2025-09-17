@@ -17,8 +17,8 @@ export default function TeamGrid({ members, theme = "black" }: TeamGridProps) {
         <div key={index} style={{ textAlign: "center" }} data-testid={`team-member-${index}`}>
           <div
             style={{
-              width: "8rem",
-              height: "8rem",
+              width: "12rem",
+              height: "12rem",
               margin: "0 auto 1rem auto",
               background: member.image ? "transparent" : (theme === "white" ? "#f3f4f6" : "#374151"),
               borderRadius: "50%",
@@ -42,7 +42,7 @@ export default function TeamGrid({ members, theme = "black" }: TeamGridProps) {
                 }}
               />
             ) : (
-              <span style={{ fontSize: "1.875rem" }}>👤</span>
+              <span style={{ fontSize: "3rem" }}>👤</span>
             )}
           </div>
           <h4

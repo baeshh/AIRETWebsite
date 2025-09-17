@@ -4,7 +4,7 @@ import TeamGrid from "../components/TeamGrid";
 import team from "../content/team";
 import visionImage from "@assets/main_1757842353489.png";
 import austinKooImage from "@assets/Austin Koo_1758106273468.jpg";
-import seunghwanBaeImage from "@assets/seunghwan bae_1758106273469.jpg";
+import seunghwanBaeImage from "@assets/Seunghwan bae_1758112313093.png";
 import anidiptaPalImage from "@assets/anidipta pal_1758106273470.png";
 import pulusuKarthikImage from "@assets/Pulusu Karthik_1758106273469.png";
 import aarushiMishraImage from "@assets/Aarushi Mishra_1758106273470.png";
@@ -121,8 +121,8 @@ export default function About() {
           <div style={{ textAlign: "center", marginBottom: "4rem" }}>
             <div
               style={{
-                width: "12rem",
-                height: "12rem",
+                width: "16rem",
+                height: "16rem",
                 margin: "0 auto 2rem auto",
                 borderRadius: "50%",
                 overflow: "hidden",
