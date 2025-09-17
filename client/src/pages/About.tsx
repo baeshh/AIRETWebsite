@@ -121,8 +121,15 @@ export default function About() {
           
           <div style={{ maxWidth: "80rem", margin: "0 auto" }}>
             {/* World Map with Animation */}
-            <div style={{ marginBottom: "4rem" }}>
-              <WorldMap />
+            <div style={{ 
+              marginBottom: "4rem", 
+              display: "flex", 
+              justifyContent: "center", 
+              alignItems: "center" 
+            }}>
+              <div style={{ maxWidth: "900px", width: "100%" }}>
+                <WorldMap />
+              </div>
             </div>
             
             {/* Technology Cards */}
