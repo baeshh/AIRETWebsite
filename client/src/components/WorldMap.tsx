@@ -14,21 +14,15 @@ export default function WorldMap() {
   // 2. 스크린샷 분석을 통한 정확한 도시 위치 (% 좌표)
   const cityData = {
     seoul: { name: "Seoul", x: 67, y: 26, labelPosition: "right" },
-    vegas: { name: "Las Vegas", x: 19, y: 31, labelPosition: "top" },
-    nyc: { name: "New York", x: 26, y: 27, labelPosition: "bottom" },
-    la: { name: "Los Angeles", x: 14, y: 33, labelPosition: "left" },
+    vegas: { name: "Las Vegas", x: 36.6, y: 25, labelPosition: "top" },
+    nyc: { name: "New York", x: 40.5, y: 25, labelPosition: "bottom" },
+    la: { name: "Los Angeles", x: 35, y: 26, labelPosition: "left" },
   };
 
   // 3. cityData를 cities 객체로 직접 사용
   const cities = cityData;
   // *** 여기까지 수정 ***
 
-  // 애니메이션 화살표 경로 (이하 모든 코드는 수정할 필요가 없습니다)
-  const paths = [
-    { from: cities.seoul, to: cities.vegas, delay: 0 },
-    { from: cities.seoul, to: cities.nyc, delay: 1 },
-    { from: cities.seoul, to: cities.la, delay: 2 },
-  ];
 
   return (
     <div
@@ -131,97 +125,6 @@ export default function WorldMap() {
         </motion.div>
       ))}
 
-      {/* 애니메이션 화살표 경로들 */}
-      {paths.map((path, index) => {
-        const deltaX = path.to.x - path.from.x;
-        const deltaY = path.to.y - path.from.y;
-        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-
-        return (
-          <motion.div
-            key={index}
-            /* ...이하 화살표 관련 코드는 모두 동일합니다... */
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: path.delay + 1, duration: 0.5 }}
-            style={{
-              position: "absolute",
-              left: `${path.from.x}%`,
-              top: `${path.from.y}%`,
-              transform: `translate(-8px, -50%) rotate(${angle}deg)`,
-              transformOrigin: "8px center",
-              zIndex: 5,
-            }}
-          >
-            <svg
-              width={`${distance * 6}`}
-              height="60"
-              style={{ overflow: "visible" }}
-            >
-              <defs>
-                <marker
-                  id={`arrowhead-${index}`}
-                  markerWidth="10"
-                  markerHeight="7"
-                  refX="9"
-                  refY="3.5"
-                  orient="auto"
-                >
-                  <polygon
-                    points="0 0, 10 3.5, 0 7"
-                    fill="rgba(239, 68, 68, 0.8)"
-                  />
-                </marker>
-              </defs>
-
-              <motion.path
-                d={`M0,30 Q${distance * 3},10 ${distance * 6},30`}
-                stroke="rgba(239, 68, 68, 0.8)"
-                strokeWidth="3"
-                fill="none"
-                strokeDasharray="8,4"
-                markerEnd={`url(#arrowhead-${index})`}
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{
-                  delay: path.delay + 1.5,
-                  duration: 2,
-                  ease: "easeInOut",
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  repeatDelay: 3,
-                }}
-              />
-            </svg>
-
-            {/* 펄스 효과 */}
-            <motion.div
-              style={{
-                position: "absolute",
-                right: "-8px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                width: "16px",
-                height: "16px",
-                borderRadius: "50%",
-                background: "rgba(239, 68, 68, 0.6)",
-              }}
-              animate={{
-                scale: [1, 1.5, 1],
-                opacity: [0.6, 0.2, 0.6],
-              }}
-              transition={{
-                delay: path.delay + 2,
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-                repeatDelay: 1.5,
-              }}
-            />
-          </motion.div>
-        );
-      })}
 
       {/* 제목 오버레이 */}
       <motion.div
