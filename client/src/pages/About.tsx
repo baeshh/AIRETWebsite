@@ -5,10 +5,6 @@ import TeamGrid from "../components/TeamGrid";
 import WorldMap from "../components/WorldMap";
 import team from "../content/team";
 import visionImage from "@assets/main_1757842353489.png";
-import vision1Image from "@assets/1_1758126420896.png";
-import vision2Image from "@assets/2_1758126440614.png";
-import vision3Image from "@assets/3_1758126465937.png";
-import vision4Image from "@assets/4_1758126483675.png";
 import austinKooImage from "@assets/Austin Koo_1758106273468.jpg";
 import seunghwanBaeImage from "@assets/Seunghwan bae_1758112313093.png";
 import anidiptaPalImage from "@assets/anidipta pal_1758106273470.png";
@@ -71,8 +67,8 @@ export default function About() {
       <section className="section section--black" style={{ paddingTop: "6rem" }}>
         <div className="container">
           <SectionHeader
-            title="Our Vision"
-            subtitle="Airet is a life-tech company actualizing the vision of 'the smart home that begins at your entryway.'"
+            title="About AIRET"
+            subtitle="Smart homes begin at the entrance."
             theme="black"
           />
           
@@ -83,12 +79,10 @@ export default function About() {
                   Our Vision
                 </h3>
                 <p style={{ opacity: "0.8", marginBottom: "1rem" }} data-testid="text-vision-paragraph-1">
-                  Airet is a life-tech company actualizing the vision of “the smart home that begins at your entryway.” We develop a built-in AI shoe care system that integrates storage, sterilization, drying, deodorization, and data management into a single, seamless solution.
-
+                  Airet is a life tech company actualizing the vision of “the smart home that begins at your entryway."
                 </p>
                 <p style={{ opacity: "0.8" }} data-testid="text-vision-paragraph-2">
-                  We offer a hands-free experience: users simply place their shoes inside, and our vision AI automatically identifies the shoe type, material, thickness, and humidity level to execute an optimized care routine. No manual input is required. Our key differentiator is moving beyond conventional surface-level treatments. We are standardizing "intensive care" that targets the interior of the shoe, ensuring comprehensive maintenance.
-
+                  We develop a built-in AI shoe care system that integrates storage, sterilization, drying, deodorization, and data management into a single, seamless solution.
                 </p>
               </div>
               <div
