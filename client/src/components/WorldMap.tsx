@@ -12,12 +12,12 @@ export default function WorldMap() {
     return { x, y };
   };
 
-  // 지도 이미지에 정확히 맞춘 도시 위치 (수동 조정)
+  // 스크린샷 분석을 통한 정확한 도시 위치 매핑
   const cities = {
-    seoul: { x: 85, y: 25, name: "Seoul", lat: 37.5665, long: 126.978 },    // 한국 위치
-    vegas: { x: 17, y: 30, name: "Las Vegas", lat: 36.1699, long: -115.1398 }, // 네바다 내륙
-    nyc: { x: 29, y: 24, name: "New York", lat: 40.7128, long: -74.006 },      // 미국 동부 해안
-    la: { x: 14, y: 33, name: "Los Angeles", lat: 34.0522, long: -118.2437 }   // 캘리포니아 해안
+    seoul: { x: 82, y: 32, name: "Seoul", lat: 37.5665, long: 126.978 },      // 한국 - 아시아 동북쪽
+    vegas: { x: 16, y: 35, name: "Las Vegas", lat: 36.1699, long: -115.1398 }, // 네바다 - 미국 서부 내륙  
+    nyc: { x: 25, y: 30, name: "New York", lat: 40.7128, long: -74.006 },      // 뉴욕 - 미국 동부 해안
+    la: { x: 12, y: 38, name: "Los Angeles", lat: 34.0522, long: -118.2437 }   // LA - 캘리포니아 해안
   };
 
   // 애니메이션 화살표 경로
