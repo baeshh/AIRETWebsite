@@ -141,6 +141,7 @@ export default function WorldMap() {
           borderRadius: "12px",
           boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
           textAlign: "center",
+          zIndex: 15
         }}
       >
         <h3
