@@ -151,19 +151,25 @@ export default function WorldMap() {
             animate={{ opacity: 1 }}
             transition={{ delay: connection.delay + 0.5, duration: 0.5 }}
           >
-            <motion.line
-              x1={`${from.x}%`}
-              y1={`${from.y}%`}
-              x2={`${to.x}%`}
-              y2={`${to.y}%`}
+            <motion.path
+              d={`M ${from.x}% ${from.y}% L ${to.x}% ${to.y}%`}
               stroke="#ef4444"
               strokeWidth="2"
-              strokeDasharray="6,4"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 0.8 }}
+              strokeDasharray="8,4"
+              fill="none"
+              initial={{ 
+                pathLength: 0, 
+                opacity: 0,
+                strokeDashoffset: 1
+              }}
+              animate={{ 
+                pathLength: 1, 
+                opacity: 0.8,
+                strokeDashoffset: 0
+              }}
               transition={{
                 delay: connection.delay + 1,
-                duration: 1.5,
+                duration: 2,
                 ease: "easeInOut"
               }}
             />
