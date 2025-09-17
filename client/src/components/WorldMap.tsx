@@ -138,6 +138,7 @@ export default function WorldMap() {
         return (
           <motion.svg
             key={index}
+            viewBox="0 0 100 100"
             style={{
               position: "absolute",
               top: 0,
@@ -152,20 +153,18 @@ export default function WorldMap() {
             transition={{ delay: connection.delay + 0.5, duration: 0.5 }}
           >
             <motion.path
-              d={`M ${from.x}% ${from.y}% L ${to.x}% ${to.y}%`}
+              d={`M ${from.x} ${from.y} L ${to.x} ${to.y}`}
               stroke="#ef4444"
-              strokeWidth="2"
-              strokeDasharray="8,4"
+              strokeWidth="0.5"
+              strokeDasharray="2,1"
               fill="none"
               initial={{ 
                 pathLength: 0, 
-                opacity: 0,
-                strokeDashoffset: 1
+                opacity: 0
               }}
               animate={{ 
                 pathLength: 1, 
-                opacity: 0.8,
-                strokeDashoffset: 0
+                opacity: 0.8
               }}
               transition={{
                 delay: connection.delay + 1,
@@ -176,9 +175,9 @@ export default function WorldMap() {
             
             {/* 연결점에서 펄스 효과 */}
             <motion.circle
-              cx={`${to.x}%`}
-              cy={`${to.y}%`}
-              r="3"
+              cx={to.x}
+              cy={to.y}
+              r="1"
               fill="#ef4444"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ 
