@@ -224,7 +224,7 @@ export default function About() {
                     fontSize: "1.1rem",
                     lineHeight: "1.7"
                   }} data-testid="text-smart-design-paragraph-1">
-                    Our product lineup consists of a built-in shoe cabinet and dedicated intensive care devices. The built-in cabinet handles daily maintenance including low-temperature drying, deodorization, air circulation, and a safety interlock. Meanwhile, our intensive care devices an automated unit mounted inside (“Shoe tree”) and a portable version (“Shoe tree”) manage the deepest areas of the shoe, including the ball, toe box, and the area beneath the insole. The portable “Shu-tree” in particular upgrades traditional UV-C sterilization to a high-efficiency plasma-based system, enabling faster, more effective elimination of bacteria and odor while enhancing user convenience and safety.
+                    Our product lineup consists of a built-in shoe cabinet and dedicated intensive care devices. The built-in cabinet handles daily maintenance including low-temperature drying, deodorization, air circulation, and a safety interlock. Meanwhile, our intensive care devices an automated unit mounted inside (“Shoe tree”) and a portable version (“Shoe tree”) manage the deepest areas of the shoe, including the ball, toe box, and the area beneath the insole. The portable “Shoe-tree” in particular upgrades traditional UV-C sterilization to a high-efficiency plasma-based system, enabling faster, more effective elimination of bacteria and odor while enhancing user convenience and safety.
                   </p>
                   <p style={{ 
                     opacity: "0.8",
