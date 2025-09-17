@@ -13,7 +13,7 @@ export default function WorldMap() {
   // *** 이 부분을 수정합니다 ***
   // 2. 스크린샷 분석을 통한 정확한 도시 위치 (% 좌표)
   const cityData = {
-    seoul: { name: "Seoul", x: 79, y: 28, labelPosition: "right" },
+    seoul: { name: "Seoul", x: 67, y: 26, labelPosition: "right" },
     vegas: { name: "Las Vegas", x: 19, y: 31, labelPosition: "top" },
     nyc: { name: "New York", x: 26, y: 27, labelPosition: "bottom" },
     la: { name: "Los Angeles", x: 14, y: 33, labelPosition: "left" },
