@@ -20,16 +20,30 @@ export default function TeamGrid({ members, theme = "black" }: TeamGridProps) {
               width: "8rem",
               height: "8rem",
               margin: "0 auto 1rem auto",
-              background: theme === "white" ? "#f3f4f6" : "#374151",
+              background: member.image ? "transparent" : (theme === "white" ? "#f3f4f6" : "#374151"),
               borderRadius: "50%",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               color: theme === "white" ? "#9ca3af" : "#6b7280",
+              overflow: "hidden"
             }}
             data-testid={`team-avatar-${index}`}
           >
-            <span style={{ fontSize: "1.875rem" }}>👤</span>
+            {member.image ? (
+              <img 
+                src={member.image} 
+                alt={member.name}
+                style={{ 
+                  width: "100%", 
+                  height: "100%", 
+                  objectFit: "cover",
+                  display: "block" 
+                }}
+              />
+            ) : (
+              <span style={{ fontSize: "1.875rem" }}>👤</span>
+            )}
           </div>
           <h4
             style={{

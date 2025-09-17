@@ -3,6 +3,11 @@ import SectionHeader from "../components/SectionHeader";
 import TeamGrid from "../components/TeamGrid";
 import team from "../content/team";
 import visionImage from "@assets/main_1757842353489.png";
+import austinKooImage from "@assets/Austin Koo_1758106273468.jpg";
+import seunghwanBaeImage from "@assets/seunghwan bae_1758106273469.jpg";
+import anidiptaPalImage from "@assets/anidipta pal_1758106273470.png";
+import pulusuKarthikImage from "@assets/Pulusu Karthik_1758106273469.png";
+import aarushiMishraImage from "@assets/Aarushi Mishra_1758106273470.png";
 
 type Year = 2023 | 2024 | 2025;
 
@@ -13,6 +18,23 @@ interface Milestone {
 
 export default function About() {
   const [activeYear, setActiveYear] = useState<Year>(2025);
+
+  // 팀 멤버 이미지 매핑 함수
+  const getTeamMemberImage = (name: string): string | undefined => {
+    const nameMap: Record<string, string> = {
+      "Seunghwan Bae": seunghwanBaeImage,
+      "Anidipta Pal": anidiptaPalImage,
+      "PULUSU KARTHIK": pulusuKarthikImage,
+      "Aarushi Mishra": aarushiMishraImage
+    };
+    return nameMap[name];
+  };
+
+  // 이미지가 있는 팀 멤버들을 위해 이미지 속성 추가
+  const membersWithImages = team.members.map((member: any) => ({
+    ...member,
+    image: getTeamMemberImage(member.name)
+  }));
 
   const milestonesByYear: Record<Year, Milestone[]> = {
     2023: [
@@ -102,17 +124,22 @@ export default function About() {
                 width: "12rem",
                 height: "12rem",
                 margin: "0 auto 2rem auto",
-                background: "#f3f4f6",
                 borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#9ca3af",
+                overflow: "hidden",
                 border: "4px solid #e5e7eb",
               }}
               data-testid="founder-avatar"
             >
-              <span style={{ fontSize: "3rem" }}>👤</span>
+              <img 
+                src={austinKooImage} 
+                alt={team.founder.name}
+                style={{ 
+                  width: "100%", 
+                  height: "100%", 
+                  objectFit: "cover",
+                  display: "block" 
+                }}
+              />
             </div>
             <h3
               style={{
@@ -150,7 +177,7 @@ export default function About() {
           </div>
 
           {/* Team Members Grid */}
-          <TeamGrid members={team.members} theme="white" />
+          <TeamGrid members={membersWithImages} theme="white" />
         </div>
       </section>
 
