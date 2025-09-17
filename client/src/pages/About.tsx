@@ -121,8 +121,8 @@ export default function About() {
           <div style={{ textAlign: "center", marginBottom: "4rem" }}>
             <div
               style={{
-                width: "16rem",
-                height: "16rem",
+                width: "20rem",
+                height: "20rem",
                 margin: "0 auto 2rem auto",
                 borderRadius: "50%",
                 overflow: "hidden",
