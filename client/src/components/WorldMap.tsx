@@ -21,7 +21,13 @@ export default function WorldMap() {
 
   // 3. cityData를 cities 객체로 직접 사용
   const cities = cityData;
-  // *** 여기까지 수정 ***
+
+  // 서울에서 각 도시로의 연결 경로
+  const connections = [
+    { from: cities.seoul, to: cities.vegas, delay: 0 },
+    { from: cities.seoul, to: cities.nyc, delay: 1 },
+    { from: cities.seoul, to: cities.la, delay: 2 }
+  ];
 
 
   return (
@@ -125,6 +131,63 @@ export default function WorldMap() {
         </motion.div>
       ))}
 
+      {/* 서울에서 각 도시로 연결되는 선 애니메이션 */}
+      {connections.map((connection, index) => {
+        const { from, to } = connection;
+        
+        return (
+          <motion.svg
+            key={index}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              pointerEvents: "none",
+              zIndex: 1
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: connection.delay + 0.5, duration: 0.5 }}
+          >
+            <motion.line
+              x1={`${from.x}%`}
+              y1={`${from.y}%`}
+              x2={`${to.x}%`}
+              y2={`${to.y}%`}
+              stroke="#ef4444"
+              strokeWidth="2"
+              strokeDasharray="6,4"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.8 }}
+              transition={{
+                delay: connection.delay + 1,
+                duration: 1.5,
+                ease: "easeInOut"
+              }}
+            />
+            
+            {/* 연결점에서 펄스 효과 */}
+            <motion.circle
+              cx={`${to.x}%`}
+              cy={`${to.y}%`}
+              r="3"
+              fill="#ef4444"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ 
+                scale: [0, 1.2, 1],
+                opacity: [0, 0.8, 0.6]
+              }}
+              transition={{
+                delay: connection.delay + 2.5,
+                duration: 0.8,
+                ease: "easeOut"
+              }}
+            />
+          </motion.svg>
+        );
+      })}
 
       {/* 제목 오버레이 */}
       <motion.div
