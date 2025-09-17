@@ -129,11 +129,29 @@ export default function About() {
                   alignItems: "center",
                   gap: "0.5rem",
                   margin: "0 auto",
-                  transition: "all 0.3s ease"
+                  transition: "all 0.3s ease",
+                  position: "relative",
+                  overflow: "hidden"
+                }}
+                initial={{ scale: 1, opacity: 1 }}
+                animate={{ 
+                  scale: [1, 1.02, 1], 
+                  borderColor: [
+                    "rgba(255, 255, 255, 0.3)",
+                    "rgba(255, 255, 255, 0.6)",
+                    "rgba(255, 255, 255, 0.3)"
+                  ]
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 2,
+                  ease: "easeInOut"
                 }}
                 whileHover={{ 
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  borderColor: "rgba(255, 255, 255, 0.5)"
+                  backgroundColor: "rgba(255, 255, 255, 0.15)",
+                  borderColor: "rgba(255, 255, 255, 0.8)",
+                  scale: 1.05,
+                  boxShadow: "0 0 25px rgba(255, 255, 255, 0.3)"
                 }}
                 whileTap={{ scale: 0.95 }}
                 data-testid="button-lead-more"
@@ -144,6 +162,14 @@ export default function About() {
                     display: "inline-block",
                     transform: showMoreContent ? "rotate(180deg)" : "rotate(0deg)",
                     transition: "transform 0.3s ease"
+                  }}
+                  animate={{
+                    y: showMoreContent ? [0, 0, 0] : [0, 3, 0]
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 1.5,
+                    ease: "easeInOut"
                   }}
                 >
                   ↓
@@ -187,7 +213,7 @@ export default function About() {
                     marginBottom: "1.5rem",
                     color: "#ffffff"
                   }} data-testid="text-smart-design-title">
-                    Smart Design
+                    Advanced Shoe Care
                   </h3>
                   <p style={{ 
                     opacity: "0.8", 
@@ -195,14 +221,14 @@ export default function About() {
                     fontSize: "1.1rem",
                     lineHeight: "1.7"
                   }} data-testid="text-smart-design-paragraph-1">
-                    AIRET's sleek, minimalist design seamlessly integrates into any modern home environment.
+                    Our product lineup consists of a built-in shoe cabinet and dedicated intensive care devices. The built-in cabinet handles daily maintenance including low-temperature drying, deodorization, air circulation, and a safety interlock. Meanwhile, our intensive care devices an automated unit mounted inside (“Shoe tree”) and a portable version (“Shoe tree”) manage the deepest areas of the shoe, including the ball, toe box, and the area beneath the insole. The portable “Shu-tree” in particular upgrades traditional UV-C sterilization to a high-efficiency plasma-based system, enabling faster, more effective elimination of bacteria and odor while enhancing user convenience and safety.
                   </p>
                   <p style={{ 
                     opacity: "0.8",
                     fontSize: "1.1rem",
                     lineHeight: "1.7"
                   }} data-testid="text-smart-design-paragraph-2">
-                    The premium black finish and clean lines reflect our commitment to both form and function.
+                    
                   </p>
                 </div>
                 <div
@@ -248,7 +274,7 @@ export default function About() {
                     marginBottom: "1.5rem",
                     color: "#ffffff"
                   }} data-testid="text-connected-experience-title">
-                    Connected Experience
+                    Smart Shoe Care Software
                   </h3>
                   <p style={{ 
                     opacity: "0.8", 
@@ -256,14 +282,15 @@ export default function About() {
                     fontSize: "1.1rem",
                     lineHeight: "1.7"
                   }} data-testid="text-connected-experience-paragraph-1">
-                    Our intuitive mobile app provides real-time monitoring and control of your shoe care system.
+                    Airet's software provides personalized care, built on an edge first architecture and seamless IoT integration. Through the app, users can access weekly and monthly care reports (detailing usage frequency, drying times, and care history), receive alerts for mold and odor risks, browse material-specific care guides, and get recommendations for replacement or cleaning. Furthermore, the system collects and analyzes environmental data such as indoor air quality, temperature, humidity, and VOCs (Volatile Organic Compounds) to maintain a healthy and pleasant entryway environment. We protect user privacy through strict anonymization and data aggregation policies. This accumulated data becomes a scalable digital asset, opening future collaboration opportunities with footwear brands and resale platforms.
+
                   </p>
                   <p style={{ 
                     opacity: "0.8",
                     fontSize: "1.1rem",
                     lineHeight: "1.7"
                   }} data-testid="text-connected-experience-paragraph-2">
-                    Track care cycles, receive maintenance alerts, and customize settings for optimal shoe preservation.
+                    
                   </p>
                 </div>
                 <div
@@ -309,7 +336,7 @@ export default function About() {
                     marginBottom: "1.5rem",
                     color: "#ffffff"
                   }} data-testid="text-premium-interior-title">
-                    Premium Interior
+                    Premium & Sustainable
                   </h3>
                   <p style={{ 
                     opacity: "0.8", 
@@ -317,14 +344,15 @@ export default function About() {
                     fontSize: "1.1rem",
                     lineHeight: "1.7"
                   }} data-testid="text-premium-interior-paragraph-1">
-                    Crafted with high-quality materials and sophisticated lighting systems.
+                    Our design philosophy adheres to the aesthetic and usability standards of premium built-in appliances, ensuring our system integrates naturally into any living space. We offer a distinct move in experience for our B2B partners, such as construction firms and interior design studios, while providing professional-grade home care for high-end consumers and collectors. By extending the lifespan of footwear (Wear Longer) and reducing waste and odor (Discard Less), we also contribute significantly to ESG values.
+
                   </p>
                   <p style={{ 
                     opacity: "0.8",
                     fontSize: "1.1rem",
                     lineHeight: "1.7"
                   }} data-testid="text-premium-interior-paragraph-2">
-                    The warm wood finish and precise organization create a luxury experience for your footwear collection.
+                    
                   </p>
                 </div>
                 <div
@@ -370,7 +398,7 @@ export default function About() {
                     marginBottom: "1.5rem",
                     color: "#ffffff"
                   }} data-testid="text-smart-illumination-title">
-                    Smart Illumination
+                    Smart Platform Shift
                   </h3>
                   <p style={{ 
                     opacity: "0.8", 
@@ -378,14 +406,15 @@ export default function About() {
                     fontSize: "1.1rem",
                     lineHeight: "1.7"
                   }} data-testid="text-smart-illumination-paragraph-1">
-                    Advanced LED lighting system provides optimal visibility and showcases your shoes beautifully.
+                    Leveraging our intellectual property in AI-powered shoe recognition and automated care (1 patent registered, 3 pending), we are building a comprehensive "Shoe Care Platform" that encompasses hardware, software, and data. Airet is redefining the standard of shoe management from mere "storage" to an integrated “Showcase + care + data" model transforming the entryway into the smartest space in the home.
+
                   </p>
                   <p style={{ 
                     opacity: "0.8",
                     fontSize: "1.1rem",
                     lineHeight: "1.7"
                   }} data-testid="text-smart-illumination-paragraph-2">
-                    Energy-efficient illumination automatically adjusts based on usage patterns and time of day.
+                    
                   </p>
                 </div>
                 <div
