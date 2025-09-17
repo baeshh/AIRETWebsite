@@ -24,6 +24,7 @@ interface Milestone {
 
 export default function About() {
   const [activeYear, setActiveYear] = useState<Year>(2025);
+  const [showMoreContent, setShowMoreContent] = useState(false);
 
   // 팀 멤버 이미지 매핑 함수
   const getTeamMemberImage = (name: string): string | undefined => {
@@ -111,7 +112,47 @@ export default function About() {
               </div>
             </div>
 
+            {/* Lead More Button */}
+            <div style={{ textAlign: "center", marginTop: "4rem" }}>
+              <motion.button
+                onClick={() => setShowMoreContent(!showMoreContent)}
+                style={{
+                  background: "transparent",
+                  border: "2px solid rgba(255, 255, 255, 0.3)",
+                  borderRadius: "50px",
+                  padding: "1rem 2rem",
+                  color: "#ffffff",
+                  fontSize: "1.1rem",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  margin: "0 auto",
+                  transition: "all 0.3s ease"
+                }}
+                whileHover={{ 
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  borderColor: "rgba(255, 255, 255, 0.5)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                data-testid="button-lead-more"
+              >
+                Lead More
+                <motion.span
+                  style={{
+                    display: "inline-block",
+                    transform: showMoreContent ? "rotate(180deg)" : "rotate(0deg)",
+                    transition: "transform 0.3s ease"
+                  }}
+                >
+                  ↓
+                </motion.span>
+              </motion.button>
+            </div>
+
             {/* Product Details Section - Vertical Layout */}
+            {showMoreContent && (
             <motion.div 
               style={{ display: "flex", flexDirection: "column", gap: "5rem", marginTop: "6rem" }}
               initial="hidden"
@@ -369,6 +410,7 @@ export default function About() {
                 </div>
               </motion.div>
             </motion.div>
+            )}
           </div>
         </div>
       </section>
