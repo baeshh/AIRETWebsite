@@ -5,6 +5,10 @@ import TeamGrid from "../components/TeamGrid";
 import WorldMap from "../components/WorldMap";
 import team from "../content/team";
 import visionImage from "@assets/main_1757842353489.png";
+import productImage1 from "@assets/1_1758126888528.png";
+import productImage2 from "@assets/2_1758126888528.png";
+import productImage3 from "@assets/3_1758126888528.png";
+import productImage4 from "@assets/4_1758126888529.png";
 import austinKooImage from "@assets/Austin Koo_1758106273468.jpg";
 import seunghwanBaeImage from "@assets/Seunghwan bae_1758112313093.png";
 import anidiptaPalImage from "@assets/anidipta pal_1758106273470.png";
@@ -106,6 +110,265 @@ export default function About() {
                 />
               </div>
             </div>
+
+            {/* Product Details Section - Vertical Layout */}
+            <motion.div 
+              style={{ display: "flex", flexDirection: "column", gap: "5rem", marginTop: "6rem" }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.3
+                  }
+                }
+              }}
+            >
+              {/* Smart Design */}
+              <motion.div 
+                style={{ 
+                  display: "grid", 
+                  gridTemplateColumns: "1fr 1fr", 
+                  gap: "4rem", 
+                  alignItems: "center" 
+                }}
+                variants={{
+                  hidden: { opacity: 0, x: -50 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <div>
+                  <h3 style={{ 
+                    fontSize: "2rem", 
+                    fontWeight: "bold", 
+                    marginBottom: "1.5rem",
+                    color: "#ffffff"
+                  }} data-testid="text-smart-design-title">
+                    Smart Design
+                  </h3>
+                  <p style={{ 
+                    opacity: "0.8", 
+                    marginBottom: "1rem",
+                    fontSize: "1.1rem",
+                    lineHeight: "1.7"
+                  }} data-testid="text-smart-design-paragraph-1">
+                    AIRET's sleek, minimalist design seamlessly integrates into any modern home environment.
+                  </p>
+                  <p style={{ 
+                    opacity: "0.8",
+                    fontSize: "1.1rem",
+                    lineHeight: "1.7"
+                  }} data-testid="text-smart-design-paragraph-2">
+                    The premium black finish and clean lines reflect our commitment to both form and function.
+                  </p>
+                </div>
+                <div
+                  style={{
+                    aspectRatio: "4/3",
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                  }}
+                  data-testid="img-smart-design-container"
+                >
+                  <img 
+                    src={productImage1} 
+                    alt="AIRET Smart Design" 
+                    style={{ 
+                      width: "100%", 
+                      height: "100%", 
+                      objectFit: "cover",
+                      display: "block" 
+                    }}
+                    data-testid="img-smart-design"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Connected Experience */}
+              <motion.div 
+                style={{ 
+                  display: "grid", 
+                  gridTemplateColumns: "1fr 1fr", 
+                  gap: "4rem", 
+                  alignItems: "center" 
+                }}
+                variants={{
+                  hidden: { opacity: 0, x: 50 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <div>
+                  <h3 style={{ 
+                    fontSize: "2rem", 
+                    fontWeight: "bold", 
+                    marginBottom: "1.5rem",
+                    color: "#ffffff"
+                  }} data-testid="text-connected-experience-title">
+                    Connected Experience
+                  </h3>
+                  <p style={{ 
+                    opacity: "0.8", 
+                    marginBottom: "1rem",
+                    fontSize: "1.1rem",
+                    lineHeight: "1.7"
+                  }} data-testid="text-connected-experience-paragraph-1">
+                    Our intuitive mobile app provides real-time monitoring and control of your shoe care system.
+                  </p>
+                  <p style={{ 
+                    opacity: "0.8",
+                    fontSize: "1.1rem",
+                    lineHeight: "1.7"
+                  }} data-testid="text-connected-experience-paragraph-2">
+                    Track care cycles, receive maintenance alerts, and customize settings for optimal shoe preservation.
+                  </p>
+                </div>
+                <div
+                  style={{
+                    aspectRatio: "4/3",
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                  }}
+                  data-testid="img-connected-experience-container"
+                >
+                  <img 
+                    src={productImage2} 
+                    alt="AIRET Connected Experience" 
+                    style={{ 
+                      width: "100%", 
+                      height: "100%", 
+                      objectFit: "cover",
+                      display: "block" 
+                    }}
+                    data-testid="img-connected-experience"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Premium Interior */}
+              <motion.div 
+                style={{ 
+                  display: "grid", 
+                  gridTemplateColumns: "1fr 1fr", 
+                  gap: "4rem", 
+                  alignItems: "center" 
+                }}
+                variants={{
+                  hidden: { opacity: 0, x: -50 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <div>
+                  <h3 style={{ 
+                    fontSize: "2rem", 
+                    fontWeight: "bold", 
+                    marginBottom: "1.5rem",
+                    color: "#ffffff"
+                  }} data-testid="text-premium-interior-title">
+                    Premium Interior
+                  </h3>
+                  <p style={{ 
+                    opacity: "0.8", 
+                    marginBottom: "1rem",
+                    fontSize: "1.1rem",
+                    lineHeight: "1.7"
+                  }} data-testid="text-premium-interior-paragraph-1">
+                    Crafted with high-quality materials and sophisticated lighting systems.
+                  </p>
+                  <p style={{ 
+                    opacity: "0.8",
+                    fontSize: "1.1rem",
+                    lineHeight: "1.7"
+                  }} data-testid="text-premium-interior-paragraph-2">
+                    The warm wood finish and precise organization create a luxury experience for your footwear collection.
+                  </p>
+                </div>
+                <div
+                  style={{
+                    aspectRatio: "4/3",
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                  }}
+                  data-testid="img-premium-interior-container"
+                >
+                  <img 
+                    src={productImage3} 
+                    alt="AIRET Premium Interior" 
+                    style={{ 
+                      width: "100%", 
+                      height: "100%", 
+                      objectFit: "cover",
+                      display: "block" 
+                    }}
+                    data-testid="img-premium-interior"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Smart Illumination */}
+              <motion.div 
+                style={{ 
+                  display: "grid", 
+                  gridTemplateColumns: "1fr 1fr", 
+                  gap: "4rem", 
+                  alignItems: "center" 
+                }}
+                variants={{
+                  hidden: { opacity: 0, x: 50 },
+                  visible: { opacity: 1, x: 0 }
+                }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <div>
+                  <h3 style={{ 
+                    fontSize: "2rem", 
+                    fontWeight: "bold", 
+                    marginBottom: "1.5rem",
+                    color: "#ffffff"
+                  }} data-testid="text-smart-illumination-title">
+                    Smart Illumination
+                  </h3>
+                  <p style={{ 
+                    opacity: "0.8", 
+                    marginBottom: "1rem",
+                    fontSize: "1.1rem",
+                    lineHeight: "1.7"
+                  }} data-testid="text-smart-illumination-paragraph-1">
+                    Advanced LED lighting system provides optimal visibility and showcases your shoes beautifully.
+                  </p>
+                  <p style={{ 
+                    opacity: "0.8",
+                    fontSize: "1.1rem",
+                    lineHeight: "1.7"
+                  }} data-testid="text-smart-illumination-paragraph-2">
+                    Energy-efficient illumination automatically adjusts based on usage patterns and time of day.
+                  </p>
+                </div>
+                <div
+                  style={{
+                    aspectRatio: "4/3",
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                  }}
+                  data-testid="img-smart-illumination-container"
+                >
+                  <img 
+                    src={productImage4} 
+                    alt="AIRET Smart Illumination" 
+                    style={{ 
+                      width: "100%", 
+                      height: "100%", 
+                      objectFit: "cover",
+                      display: "block" 
+                    }}
+                    data-testid="img-smart-illumination"
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
