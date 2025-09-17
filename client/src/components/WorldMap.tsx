@@ -2,20 +2,22 @@ import { motion } from "framer-motion";
 import worldMapImage from "@assets/image_1758118119885.png";
 
 export default function WorldMap() {
-  // 실제 지리적 좌표를 이미지 좌표로 변환하는 함수
+  // 지도 이미지의 실제 범위에 맞춘 좌표 변환
+  // 이 지도는 equirectangular projection으로 보이며, 범위는 대략:
+  // 경도: -180° ~ +180°, 위도: -60° ~ +80° 
   const latLongToImageCoords = (lat: number, long: number) => {
-    // 이미지의 실제 좌표 범위 분석: 경도 -180 ~ +180, 위도 -60 ~ +80
-    const x = ((long + 180) / 360) * 100; // 경도를 0-100% 범위로 변환
-    const y = ((80 - lat) / 140) * 100;   // 위도를 0-100% 범위로 변환 (위아래 반전)
+    // 지도 이미지의 실제 보이는 범위에 맞춤
+    const x = ((long + 180) / 360) * 100; // 경도 변환
+    const y = ((70 - lat) / 130) * 100;   // 위도 변환 (지도 범위 -60~+70도 기준)
     return { x, y };
   };
 
-  // 실제 지리적 좌표 기반 도시 위치
+  // 지도 이미지에 정확히 맞춘 도시 위치 (수동 조정)
   const cities = {
-    seoul: { ...latLongToImageCoords(37.5665, 126.978), name: "Seoul", lat: 37.5665, long: 126.978 },
-    vegas: { ...latLongToImageCoords(36.1699, -115.1398), name: "Las Vegas", lat: 36.1699, long: -115.1398 },
-    nyc: { ...latLongToImageCoords(40.7128, -74.006), name: "New York", lat: 40.7128, long: -74.006 },
-    la: { ...latLongToImageCoords(34.0522, -118.2437), name: "Los Angeles", lat: 34.0522, long: -118.2437 }
+    seoul: { x: 85, y: 25, name: "Seoul", lat: 37.5665, long: 126.978 },    // 한국 위치
+    vegas: { x: 17, y: 30, name: "Las Vegas", lat: 36.1699, long: -115.1398 }, // 네바다 내륙
+    nyc: { x: 29, y: 24, name: "New York", lat: 40.7128, long: -74.006 },      // 미국 동부 해안
+    la: { x: 14, y: 33, name: "Los Angeles", lat: 34.0522, long: -118.2437 }   // 캘리포니아 해안
   };
 
   // 애니메이션 화살표 경로
@@ -47,8 +49,8 @@ export default function WorldMap() {
           left: 0,
           width: "100%",
           height: "100%",
-          objectFit: "cover",
-          opacity: 0.8
+          objectFit: "contain",
+          opacity: 0.9
         }}
       />
 
