@@ -133,9 +133,9 @@ export default function WorldMap() {
         transition={{ delay: 3, duration: 1 }}
         style={{
           position: "absolute",
-          top: "50%",
+          bottom: "20px",
           left: "50%",
-          transform: "translate(-50%, -50%)",
+          transform: "translateX(-50%)",
           background: "rgba(255, 255, 255, 0.95)",
           padding: "16px 24px",
           borderRadius: "12px",
