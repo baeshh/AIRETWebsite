@@ -3,7 +3,6 @@ import SectionHeader from "../components/SectionHeader";
 import TeamGrid from "../components/TeamGrid";
 import team from "../content/team";
 import visionImage from "@assets/main_1757842353489.png";
-import worldMapImage from "@assets/image_1758041806211.png";
 
 type Year = 2023 | 2024 | 2025;
 
@@ -127,51 +126,59 @@ export default function About() {
             }}
             data-testid="world-map-container"
           >
-            {/* Background World Map Image */}
-            <img 
-              src={worldMapImage} 
-              alt="World Map" 
-              style={{ 
-                width: "100%", 
-                height: "100%", 
-                objectFit: "cover",
-                opacity: "0.6"
-              }}
-            />
-            
-            {/* Overlay SVG for Cities and Animation */}
             <svg 
               width="100%" 
               height="100%" 
               viewBox="0 0 800 400"
               style={{ position: "absolute", top: 0, left: 0 }}
             >
+              {/* World Map Outline */}
+              <ellipse 
+                cx="400" 
+                cy="200" 
+                rx="390" 
+                ry="190" 
+                fill="none" 
+                stroke="rgba(255, 255, 255, 0.3)" 
+                strokeWidth="2"
+              />
+              
+              {/* Simplified world continents */}
+              <g fill="rgba(255, 255, 255, 0.15)" stroke="rgba(255, 255, 255, 0.3)" strokeWidth="1">
+                {/* Asia */}
+                <path d="M450 120 C500 110, 550 130, 580 160 C590 180, 570 200, 550 190 C520 185, 480 170, 450 160 Z" />
+                {/* North America */}
+                <path d="M200 100 C250 90, 300 110, 330 140 C340 160, 320 180, 300 170 C270 165, 230 150, 200 140 Z" />
+                {/* Europe */}
+                <path d="M350 110 C380 105, 410 115, 430 130 C435 140, 425 150, 410 145 C390 140, 370 135, 350 130 Z" />
+              </g>
+
               {/* City Dots */}
-              <circle cx="700" cy="180" r="8" fill="#10b981" data-testid="seoul-dot">
+              <circle cx="580" cy="150" r="8" fill="#10b981" data-testid="seoul-dot">
                 <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
               </circle>
-              <circle cx="200" cy="160" r="6" fill="#3b82f6" data-testid="newyork-dot" />
-              <circle cx="150" cy="180" r="6" fill="#f59e0b" data-testid="lasvegas-dot" />
-              <circle cx="130" cy="200" r="6" fill="#ef4444" data-testid="la-dot" />
+              <circle cx="250" cy="120" r="6" fill="#3b82f6" data-testid="newyork-dot" />
+              <circle cx="200" cy="140" r="6" fill="#f59e0b" data-testid="lasvegas-dot" />
+              <circle cx="180" cy="160" r="6" fill="#ef4444" data-testid="la-dot" />
 
               {/* Animated Connection Lines */}
               <g stroke="#4f46e5" strokeWidth="2" fill="none" strokeDasharray="5,5">
-                <line x1="700" y1="180" x2="200" y2="160" opacity="0.8">
+                <line x1="580" y1="150" x2="250" y2="120" opacity="0.8">
                   <animate attributeName="stroke-dashoffset" values="0;-20" dur="2s" repeatCount="indefinite" />
                 </line>
-                <line x1="700" y1="180" x2="150" y2="180" opacity="0.8">
+                <line x1="580" y1="150" x2="200" y2="140" opacity="0.8">
                   <animate attributeName="stroke-dashoffset" values="0;-20" dur="2.5s" repeatCount="indefinite" />
                 </line>
-                <line x1="700" y1="180" x2="130" y2="200" opacity="0.8">
+                <line x1="580" y1="150" x2="180" y2="160" opacity="0.8">
                   <animate attributeName="stroke-dashoffset" values="0;-20" dur="3s" repeatCount="indefinite" />
                 </line>
               </g>
 
               {/* City Labels */}
-              <text x="710" y="170" fill="white" fontSize="12" fontWeight="600" textAnchor="start">Seoul</text>
-              <text x="210" y="150" fill="white" fontSize="12" fontWeight="600" textAnchor="start">New York</text>
-              <text x="160" y="170" fill="white" fontSize="12" fontWeight="600" textAnchor="start">Las Vegas</text>
-              <text x="140" y="190" fill="white" fontSize="12" fontWeight="600" textAnchor="start">Los Angeles</text>
+              <text x="590" y="140" fill="white" fontSize="12" fontWeight="600" textAnchor="start">Seoul</text>
+              <text x="260" y="110" fill="white" fontSize="12" fontWeight="600" textAnchor="start">New York</text>
+              <text x="210" y="130" fill="white" fontSize="12" fontWeight="600" textAnchor="start">Las Vegas</text>
+              <text x="190" y="150" fill="white" fontSize="12" fontWeight="600" textAnchor="start">Los Angeles</text>
             </svg>
           </div>
 
