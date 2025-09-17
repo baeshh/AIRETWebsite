@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import SectionHeader from "../components/SectionHeader";
 import TeamGrid from "../components/TeamGrid";
+import WorldMap from "../components/WorldMap";
 import team from "../content/team";
 import visionImage from "@assets/main_1757842353489.png";
 import austinKooImage from "@assets/Austin Koo_1758106273468.jpg";
@@ -104,6 +106,211 @@ export default function About() {
                 />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Overview Section (Gray/Blue) */}
+      <section className="section section--white" style={{ background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)" }}>
+        <div className="container">
+          <SectionHeader
+            title="Technology Overview"
+            subtitle="Innovation that connects Seoul to the world"
+            theme="white"
+          />
+          
+          <div style={{ maxWidth: "80rem", margin: "0 auto" }}>
+            {/* World Map with Animation */}
+            <div style={{ marginBottom: "4rem" }}>
+              <WorldMap />
+            </div>
+            
+            {/* Technology Cards */}
+            <motion.div 
+              style={{ 
+                display: "grid", 
+                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", 
+                gap: "2rem" 
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.2
+                  }
+                }
+              }}
+            >
+              {/* Vision AI Card */}
+              <motion.div 
+                style={{
+                  background: "white",
+                  padding: "2rem",
+                  borderRadius: "16px",
+                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                  border: "1px solid rgba(0, 0, 0, 0.05)",
+                  cursor: "pointer"
+                }}
+                data-testid="card-vision-ai"
+                variants={{
+                  hidden: { opacity: 0, y: 50, scale: 0.9 },
+                  visible: { opacity: 1, y: 0, scale: 1 }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                whileHover={{ 
+                  y: -8, 
+                  boxShadow: "0 12px 32px rgba(0, 0, 0, 0.15)",
+                  transition: { duration: 0.3 }
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <motion.div
+                  style={{
+                    width: "60px",
+                    height: "60px",
+                    borderRadius: "12px",
+                    background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: "1.5rem"
+                  }}
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <span style={{ fontSize: "24px", color: "white" }}>🤖</span>
+                </motion.div>
+                <h3 style={{ 
+                  fontSize: "1.5rem", 
+                  fontWeight: "bold", 
+                  marginBottom: "1rem",
+                  color: "#4f46e5"
+                }}>
+                  Vision AI Shoe Recognition
+                </h3>
+                <p style={{ 
+                  opacity: "0.8", 
+                  lineHeight: "1.6",
+                  color: "#374151"
+                }}>
+                  On-device vision AI auto-recognizes shoes and runs the optimal care instantly
+                </p>
+              </motion.div>
+              
+              {/* Smart Shoe-Care Card */}
+              <motion.div 
+                style={{
+                  background: "white",
+                  padding: "2rem",
+                  borderRadius: "16px",
+                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                  border: "1px solid rgba(0, 0, 0, 0.05)",
+                  cursor: "pointer"
+                }}
+                data-testid="card-smart-care"
+                variants={{
+                  hidden: { opacity: 0, y: 50, scale: 0.9 },
+                  visible: { opacity: 1, y: 0, scale: 1 }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                whileHover={{ 
+                  y: -8, 
+                  boxShadow: "0 12px 32px rgba(0, 0, 0, 0.15)",
+                  transition: { duration: 0.3 }
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <motion.div
+                  style={{
+                    width: "60px",
+                    height: "60px",
+                    borderRadius: "12px",
+                    background: "linear-gradient(135deg, #059669, #10b981)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: "1.5rem"
+                  }}
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <span style={{ fontSize: "24px", color: "white" }}>👟</span>
+                </motion.div>
+                <h3 style={{ 
+                  fontSize: "1.5rem", 
+                  fontWeight: "bold", 
+                  marginBottom: "1rem",
+                  color: "#059669"
+                }}>
+                  Smart Shoe-Care System
+                </h3>
+                <p style={{ 
+                  opacity: "0.8", 
+                  lineHeight: "1.6",
+                  color: "#374151"
+                }}>
+                  Premium built-in plus Showtree/Shoetree for surface-to-interior sterilizing, deodorizing, and gentle drying
+                </p>
+              </motion.div>
+              
+              {/* Data & Personalization Card */}
+              <motion.div 
+                style={{
+                  background: "white",
+                  padding: "2rem",
+                  borderRadius: "16px",
+                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                  border: "1px solid rgba(0, 0, 0, 0.05)",
+                  cursor: "pointer"
+                }}
+                data-testid="card-data-platform"
+                variants={{
+                  hidden: { opacity: 0, y: 50, scale: 0.9 },
+                  visible: { opacity: 1, y: 0, scale: 1 }
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                whileHover={{ 
+                  y: -8, 
+                  boxShadow: "0 12px 32px rgba(0, 0, 0, 0.15)",
+                  transition: { duration: 0.3 }
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <motion.div
+                  style={{
+                    width: "60px",
+                    height: "60px",
+                    borderRadius: "12px",
+                    background: "linear-gradient(135deg, #dc2626, #f87171)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: "1.5rem"
+                  }}
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <span style={{ fontSize: "24px", color: "white" }}>📱</span>
+                </motion.div>
+                <h3 style={{ 
+                  fontSize: "1.5rem", 
+                  fontWeight: "bold", 
+                  marginBottom: "1rem",
+                  color: "#dc2626"
+                }}>
+                  App reports and predictive alerts
+                </h3>
+                <p style={{ 
+                  opacity: "0.8", 
+                  lineHeight: "1.6",
+                  color: "#374151"
+                }}>
+                  personalize care; edge-first, anonymized design protects privacy
+                </p>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
