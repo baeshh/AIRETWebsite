@@ -419,8 +419,8 @@ export default function About() {
       <section className="section section--white" style={{ background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)" }}>
         <div className="container">
           <SectionHeader
-            title="Technology Overview"
-            subtitle="Innovation that connects Seoul to the world"
+            title="our vision"
+            subtitle="Transforming the paradigm of shoe care through AI and data, evolving into a global innovation brand that enables sustainable consumption and a smarter lifestyle. Beyond shoes, we aim to expand into the broader smart home ecosystem, advancing as a lifestyle platform that redefines quality of life."
             theme="white"
           />
           
