@@ -84,10 +84,13 @@ export default function About() {
                   Our Vision
                 </h3>
                 <p style={{ opacity: "0.8", marginBottom: "1rem" }} data-testid="text-vision-paragraph-1">
-                  Airet is a life tech company actualizing the vision of “the smart home that begins at your entryway."
+                  Airet is a life-tech company actualizing the vision of “the smart home that begins at your entryway.” We develop a built-in AI shoe care system that integrates storage, sterilization, drying, deodorization, and data management into a single, seamless solution.
+
+
                 </p>
                 <p style={{ opacity: "0.8" }} data-testid="text-vision-paragraph-2">
-                  We develop a built-in AI shoe care system that integrates storage, sterilization, drying, deodorization, and data management into a single, seamless solution.
+
+                  We offer a hands-free experience: users simply place their shoes inside, and our vision AI automatically identifies the shoe type, material, thickness, and humidity level to execute an optimized care routine. No manual input is required. Our key differentiator is moving beyond conventional surface-level treatments. We are standardizing "intensive care" that targets the interior of the shoe, ensuring comprehensive maintenance.
                 </p>
               </div>
               <div
