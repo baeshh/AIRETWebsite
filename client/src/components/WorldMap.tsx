@@ -134,8 +134,9 @@ export default function WorldMap() {
         style={{
           position: "absolute",
           bottom: "20px",
-          left: "50%",
-          transform: "translateX(-50%)",
+          left: "0",
+          right: "0",
+          margin: "0 auto",
           background: "rgba(255, 255, 255, 0.95)",
           padding: "16px 24px",
           borderRadius: "12px",
@@ -143,7 +144,7 @@ export default function WorldMap() {
           textAlign: "center",
           zIndex: 15,
           width: "fit-content",
-          minWidth: "300px"
+          maxWidth: "400px"
         }}
       >
         <h3
